@@ -7,6 +7,5 @@
     * [Steve Rosa] | Slack name: [Steve Rosa] | Github : [scrosa22]
     * [Jasmine Daniels] | Slack name: [Jasmine Daniels] | Github : [JasmineDaniels]
     * [Ismael Leal] | Slack name: [Ismael] | Github : [J28819]
-        * Heroku Deployed Link: [HEROKU HERE]
+        * Heroku Deployed Link: [https://adoptme5.herokuapp.com/]
     * Project Github Repo: [https://github.com/JasmineDaniels/AdoptMe]
-
