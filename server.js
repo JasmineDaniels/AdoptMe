@@ -26,9 +26,6 @@ app.get('/myPage', (req,res) => {
   res.render('myPage');
 })
 
-app.get('/adoptions', (req,res) => {
-  res.render('adoptions');
-})
 
 app.get('/login', (req,res) => {
   res.render('login');
