@@ -18,9 +18,9 @@ const hbs = exphbs.create({ helpers });
   app.engine('handlebars', hbs.engine);
   app.set('view engine', 'handlebars');
 
-app.get('/', (req,res) => {
-    res.render('homePage');
-})
+// app.get('/', (req,res) => {
+//     res.render('homePage');
+// })
 
 app.get('/myPage', (req,res) => {
   res.render('myPage');
@@ -30,8 +30,8 @@ app.get('/myPage', (req,res) => {
 app.get('/login', (req,res) => {
   res.render('login');
 })
-
-
+// use homepage
+app.use(require('./controllers/homepage-routes'));
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
