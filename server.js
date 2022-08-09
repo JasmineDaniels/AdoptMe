@@ -33,6 +33,9 @@ app.get('/login', (req,res) => {
 // use homepage
 app.use(require('./controllers/homepage-routes'));
 
+const routes = require('./controllers');
+app.use(routes);
+
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
   });

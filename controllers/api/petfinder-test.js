@@ -1,5 +1,6 @@
-require('dotenv').config();
+const router = require('express').Router();
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 // // const url = "https://api.petfinder.com/v2/oauth2/token";
 
@@ -26,19 +27,19 @@ const fetch = require('node-fetch');
 // .then( data => console.log(data));
 
 
-
 // Get OAuth token
-const getOAuth = function() {
+const getToken = async () => {
     return fetch('https://api.petfinder.com/v2/oauth2/token', {
         method: 'POST',
         body: `grant_type=client_credentials&client_id=${process.env.client_auth_id}&client_secret=${process.env.client_auth_secret}`,
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-    }).then(function(resp) {
+    }).then((resp) => {
         return resp.json();
-    }).then(function(data) {
+    }).then((data) => {
         console.log(data);
+        return data.access_token;
         // Store token data
         token = data.access_token;
         tokenType = data.token_type;
@@ -56,20 +57,38 @@ const makeCall = () => {
     }
 };
 
-getOAuth();
+let token = getToken();
 
 
-// const fetch = require('node-fetch');
 
-// const url = "https://api.petfinder.com/v2/animals?type=dog";
 
-// const options = {
-//   method: 'get',  
-//   headers: {
-//     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5WWpXNmtDaHdkaTlSRUFtTGtDRUN1ZnRuVW04NjMxZXJMUjNLQWY5NFFYalM4STVpQyIsImp0aSI6ImM3Njk5OWNkODM3MWJkNTNjMDgwMmUzZjhlMTcxY2IyMDc4MTE4ODBhOGE2Y2RjYzQ2ZDZmZTdjNTQyOWNmMGUxMDliOWU1ZTVhZmNhYzA3IiwiaWF0IjoxNjU5OTk1NDk5LCJuYmYiOjE2NTk5OTU0OTksImV4cCI6MTY1OTk5OTA5OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.rfnwg4oEQw8wYskfmkojueLdRGSCUpqVcAhH2ZJz7Xz6xhOBIHAT6pdaS1uZpK38Xrtw_KU1DtUZhiPTk7LlqvCiGHky-TP9FXG31x8Ftgi4lCvOfrNHmGjCc5hSw_9x3BLr3ENfFGa9yJEt95SRe5tH3XIqcWdEnVb3pJ0WI4f6BPPbYmW2FNwEqjRRjd7hKpByNMXg9385oijiC7OY0qV3pGEopOxAwlnfrew7_GHi2bKfUvl9eVLOrLYWab2oVruw49FFRBc1U2FTsOTzK7WYOFsqglF7A_KB607sTAqSXd1DZ8Vf84FQCKaLYfjNjy5jm5vOZQ0iRW0Z6mzYrQ'
-//   }
-// };
 
-// fetch(url, options)
-//   .then( res => res.json() )
-//   .then( data => console.log(data) );
+
+
+
+const getPetfinder = () => {
+    const url = "https://api.petfinder.com/v2/animals?type=dog";
+    const options = {
+        method: 'get',
+        headers: {
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ5WWpXNmtDaHdkaTlSRUFtTGtDRUN1ZnRuVW04NjMxZXJMUjNLQWY5NFFYalM4STVpQyIsImp0aSI6ImQ4ZWZlM2Q4MGY2YTc1YTgyMWJiNTVhMjgwMzAzODIxZGRhZTM4ZTkwODExNjMyZTMwODQ3OTg5ZTA2YjIwZDQ0YWY3YjBjYjQ3YTUxNDU4IiwiaWF0IjoxNjYwMDAyOTIwLCJuYmYiOjE2NjAwMDI5MjAsImV4cCI6MTY2MDAwNjUyMCwic3ViIjoiIiwic2NvcGVzIjpbXX0.j7G_vKM3WpqIIWVDoCj5HoB6FSGFpyJ2H3pIh1AQXvWgtEQAtgz9Hm2DgZEQrsRgqscIJIQWtEsTYjVajkgqTJ1iQPvUPgdTYwQW5rB70AEYvsN5BGSfvT0nPVW3-201miSZ5wyx13J_YpfLeV3bN0dLbXFNjt5sJF9tF2XPpqF0dz-tXi0UQ94AnA57tXMh3p5Ikic4RagLGQ7eIRQgeYmL5EdrIR_8sQmDYL-JTae_bXxkOu0eCc34ZpvfJ1JgJLzpqRJ4QpIER4Mb0nSfoQl7ckhkr1WX-EVKX0TcP4GkFmrkA21aZwkBil0oGzYmZPjbiOvuA_SX0ve5MemlsA'
+        }
+    };
+    fetch(url, options)
+    .then( res => res.json())
+    .then( data => console.log(data));
+};
+
+router.get('/', async (req, res) => {
+    try {
+        let data = await getPetfinder();
+        res.status(200).json(data);
+        res.json(data);
+        data = JSON.stringify(data)
+        res.render('petfinder');
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+});
+
+module.exports = router;
