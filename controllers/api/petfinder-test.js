@@ -19,7 +19,6 @@ const makeCall = () => {
 router.post('/', async (req, res) => {
     try {
         const animalType = req.body;
-        console.log(animalType);
         const getToken = async () => {
             return fetch('https://api.petfinder.com/v2/oauth2/token', {
                 method: 'POST',
@@ -49,16 +48,12 @@ router.post('/', async (req, res) => {
             };
             fetch(url, options)
             .then( res => res.json())
-            .then( data => console.log(data));
+            .then( data => JSON.stringify(data));
         };
         console.log(animalType);
         let token = await getToken();
         let data = await getPetfinder();
-        res.status(200).json(data);
-        console.log(data);
-        data = JSON.stringify(data)
-        res.redirect('/searchResults');
-
+        return data;
     } catch (err) {
       return res.status(500).json(err);
     

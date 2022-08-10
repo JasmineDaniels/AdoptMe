@@ -4,7 +4,6 @@ const petfinderSearchHandler = async (event) => {
     event.preventDefault();
   
     const animalType = document.querySelector('#animal-type').value;
-    // const password = document.querySelector('#password-login').value.trim();
 
     const submitSearch = (data) => {
       fetch('/api/petfinder', {
@@ -12,6 +11,7 @@ const petfinderSearchHandler = async (event) => {
         body: JSON.stringify({'type': data}),
         headers: { 'Content-Type': 'application/json' },
       })
+      .then(window.location.href = './searchResults')
       .then(res => res.json)
       .then(console.log);
     };
