@@ -15,8 +15,14 @@ const PORT = process.env.PORT || 3001;
 
 //handlebars initialization
 const hbs = exphbs.create({ helpers });
-  app.engine('handlebars', hbs.engine);
-  app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+//added the public folder so we can use js and css in handlebars
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.get('/', (req,res) => {
 //     res.render('homePage');
