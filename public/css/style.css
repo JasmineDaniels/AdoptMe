@@ -1,5 +1,10 @@
 .navbar-nav{
     font-size: 26px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-right: 200px;
 }
 
 #title {
@@ -24,3 +29,20 @@
     height: 100%;
     background-color: lightgray
 }
+
+.btn-primary {
+    padding: 15px 25px;
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  
+
+
