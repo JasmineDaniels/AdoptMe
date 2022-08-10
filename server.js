@@ -26,15 +26,25 @@ app.get('/myPage', (req,res) => {
   res.render('myPage');
 })
 
-
 app.get('/login', (req,res) => {
   res.render('login');
 })
+
+// Middleware, set static public folder
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 // use homepage
 app.use(require('./controllers/homepage-routes'));
 
+app.use(require('./controllers/api/petfinder-test'));
+
 const routes = require('./controllers');
 app.use(routes);
+
+
+
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
