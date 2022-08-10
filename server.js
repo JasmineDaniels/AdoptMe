@@ -32,10 +32,14 @@ app.get('/myPage', (req,res) => {
   res.render('myPage');
 })
 
-
 app.get('/login', (req,res) => {
   res.render('login');
 })
+
+app.get('/signup', (req,res) => {
+  res.render('signup');
+})
+
 // use homepage
 app.use(require('./controllers/homepage-routes'));
 
