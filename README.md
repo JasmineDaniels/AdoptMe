@@ -32,7 +32,6 @@ Adopt Me is designed to pair individuals searching for adoptable dogs and cats w
 * JSON
 * dotenv
 * MySQL2
-* InsomniaCore
 * Handlebars.js
 * Heroku
  
