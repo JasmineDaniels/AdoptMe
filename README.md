@@ -1,16 +1,29 @@
 # Adopt Me
 
-## Contributing
+## Table of Contents: 
+
+* [Contributing](##Contributing)
+* [Description](##Description)
+* [Technologies](##Built with)
+* [User Story](##User Story)
+* [Heroku Deployed Link](##Heroku Deployed Link)
+* [Project Github Repo](##Project Github Repo)
+
+
+## Contributing:
+
 Ismael
 Jasmine Daniels
 Steve Rosa
 Max McDonough
 Ortal Wikoff
  
-## Description
+## Description:
+
 Adopt Me is designed to pair individuals searching for adoptable dogs and cats with their perfect match. The website utilizes specific parameters provided by the user to instantaneously search numerous shelters and rescue organizations throughout a given city, providing the user with a list of potential heartwarming soulmates. The technology that Adopt Me utilizes saves users time and maximizes their search parameters to ensure they are getting their best friend much faster and with greater access to information.
 
-## Built with
+## Built with: 
+
 * Javascript
 * Node.js
 * Express.js
@@ -23,7 +36,7 @@ Adopt Me is designed to pair individuals searching for adoptable dogs and cats w
 * Handlebars.js
 * Heroku
  
-# User Story
+## User Story:
 
 AS an idvidual who is looking to adopt a pet
 I WANT one web site that will help me find a list shelters or rescue organizations that will have my specific search. 
@@ -53,8 +66,11 @@ THEN I am signed out of the site
 WHEN I am idle on the page for more than a set time
 THEN I am automatically signed out of the site
 
+## Heroku Deployed Link:
 
 Markup :  [Heroku Deployed Link](https://adoptme5.herokuapp.com/ "Heroku Deployed Link")
+
+## Project Github Repo:
 
 Markup :  [Project Github Repo](https://github.com/JasmineDaniels/AdoptMe/ "Project Github Repo")
 
