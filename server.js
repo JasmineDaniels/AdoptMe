@@ -21,6 +21,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 //added the public folder so we can use js and css in handlebars
 app.use(express.static(path.join(__dirname, 'public')));
 
