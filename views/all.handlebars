@@ -1,0 +1,108 @@
+{{!-- Swiper Styling--}}
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/> --}}
+{{!-- Font Awesome --}}
+{{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+{{!-- <link rel="stylesheet" href="../../public/CSS/carousel.css"> --}}
+
+
+<div class="container">
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            {{!-- {{#each dogs as |dog|}} --}}
+            <div class="card-wrapper swiper-wrapper">
+                {{#each dogs as |dog|}}
+                <div class="card text-center swiper-slide">
+                    <div class="card-header">
+                        <h3 class="name"> {{dog.Dog_name}}</h3>
+                    </div>
+                    <div class="image-content my-3">
+                        <div class="card-image">
+                            <img src="images/image1.jpeg" alt="Black Lab" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content mx-2 span4 collapse-group">
+                        <p class="description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repudiandae nulla facilis accusamus.
+                            </p>
+                            <p id="view-details1" class="pToggle detailToggle">
+                                <span class="breed-header"> Breed: <span class="breed-type">Yorkshire Terrier</span></span>
+                                <br>
+                                <span class="age-header"> Age: <span class="breed-type"> {{dog.Age}} </span></span>
+                                <br>
+                                <span class="detailed-desc">ID: <span> {{dog.id}} </span></span>
+                            </p>
+                            <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
+                            <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-success btn-rounded">Contact</button>
+                        <button type="button" class="btn btn-primary btn-rounded">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+
+                    
+                </div>
+
+                {{!-- <div class="card text-center swiper-slide">
+                    <div class="card-header">
+                        <h3 class="name"> Tinkerbell</h3>
+                    </div>
+                    <div class="image-content my-3">
+                        <div class="card-image">
+                            <img src="images/image2.jpeg" alt="Black Lab" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content mx-2 span4 collapse-group">
+                        <p class="breed-header"> Breed:
+                            <p class="breed-type">Yorkshire Terrier</p>
+                        </p>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repudiandae nulla facilis accusamus. <span class="collapse" id="view-details1"> Asperiores est consectetur a, adipisci saepe nulla nisi incidunt laborum modi, architecto iure corporis sit, vitae ad.</span> <a href="" data-toggle="=collapse" data-target="view-details1">More...</a></p>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-success btn-rounded">Contact</button>
+                            <button type="button" class="btn btn-primary btn-rounded">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div> --}}
+
+                {{!-- <div class="card text-center swiper-slide">
+                    <div class="card-header">
+                        <h3 class="name"> Tinkerbell</h3>
+                    </div>
+                    <div class="image-content my-3">
+                        <div class="card-image">
+                            <img src="images/image3.webp" alt="Black Lab" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content mx-2 span4 collapse-group">
+                        <p class="breed-header"> Breed:
+                            <p class="breed-type">Yorkshire Terrier</p>
+                        </p>
+                        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repudiandae nulla facilis accusamus. <span class="collapse" id="view-details1"> Asperiores est consectetur a, adipisci saepe nulla nisi incidunt laborum modi, architecto iure corporis sit, vitae ad.</span> <a href="" data-toggle="=collapse" data-target="view-details1">More...</a></p>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-success btn-rounded">Contact</button>
+                            <button type="button" class="btn btn-primary btn-rounded">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div> --}}
+
+                {{/each}} 
+            </div>
+            {{!-- {{/each}} --}}
+            {{!-- Navigation Buttons --}}
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+{{!-- <script src="../public/JavaScript/carousel.js"></script> --}}
