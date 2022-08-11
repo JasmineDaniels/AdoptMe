@@ -1,4 +1,3 @@
-
 # Adopt Me
 
 ## Table of Contents: 
