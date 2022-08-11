@@ -20,6 +20,10 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
+
+//added the public folder so we can use js and css in handlebars
 app.use(express.static(path.join(__dirname, 'public')));
 
 // app.get('/', (req,res) => {
@@ -30,10 +34,14 @@ app.get('/myPage', (req,res) => {
   res.render('myPage');
 })
 
-
 app.get('/login', (req,res) => {
   res.render('login');
 })
+
+app.get('/signup', (req,res) => {
+  res.render('signup');
+})
+
 // use homepage
 app.use(require('./controllers/homepage-routes'));
 
