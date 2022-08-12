@@ -16,7 +16,16 @@ User.init(
     User_name: { 
       type: DataTypes.STRING, 
       allowNull: false
-    }
+    },
+    User_Fav: { 
+        type: DataTypes.STRING, 
+        allowNull: false,
+        references: {
+            model: 'Dog',
+            key: 'id'
+          }, 
+      },
+    
   },
   {
     sequelize,
