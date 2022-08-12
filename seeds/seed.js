@@ -8,7 +8,6 @@ const seedAll = async () => {
   console.log('\n----- DATABASE SYNCED -----\n');
   await seedCategories();
   console.log('\n----- CATEGORIES SEEDED -----\n');
-
   await seeddogs();
   console.log('\n----- DOGS SEEDED -----\n');
   process.exit(0);
