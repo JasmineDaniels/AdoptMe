@@ -25,13 +25,6 @@ Dog.init(
       type: DataTypes.FLOAT, 
       allowNull: false,
             },
-    // available: { 
-    //   type: DataTypes.INTEGER, 
-    //   allowNull: false,
-    //   validator: {
-
-    //   }
-    // }, 
     category_id: { 
       type: DataTypes.INTEGER, 
       references: {
