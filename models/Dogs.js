@@ -18,8 +18,7 @@ Dog.init(
     }, 
     Dog_name: { 
       type: DataTypes.STRING, 
-      allowNull: false
-      
+      allowNull: false,
     }, 
     Age: { 
       type: DataTypes.FLOAT, 
@@ -27,10 +26,11 @@ Dog.init(
     },
     breed: {
       type: DataTypes.STRING,
-      allowNull:false
+      allowNull:false,
     },
     description:{
-      
+      type: DataTypes.STRING,
+      allowNull:false,
     },
     category_id: { 
       type: DataTypes.INTEGER, 

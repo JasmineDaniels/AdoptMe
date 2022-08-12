@@ -25,6 +25,7 @@ const { Sequelize } = require('sequelize');
 //   );
 // }
 
+
 // module.exports = sequelize;
 
 const sequelize = new Sequelize (process.env.MYSQLURI || process.env.JAWSDB_URL)

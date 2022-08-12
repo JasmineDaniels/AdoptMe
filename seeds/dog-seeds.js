@@ -4,13 +4,13 @@ const DogData = [
   {
     Dog_name: 'Rocky',
     Age: 1,
-    Available: 1,
+    breed: 'German Shepherd',
     category_id: 1,
   },
   {
     Dog_name: 'Princess',
     Age: 3,
-    Available: 1,
+    breed: 'Yorkshire Terrior',
     category_id: 2,
   },
   {
