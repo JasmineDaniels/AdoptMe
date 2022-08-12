@@ -24,14 +24,14 @@ Dog.init(
     Age: { 
       type: DataTypes.FLOAT, 
       allowNull: false,
-            },
-    // available: { 
-    //   type: DataTypes.INTEGER, 
-    //   allowNull: false,
-    //   validator: {
-
-    //   }
-    // }, 
+    },
+    breed: {
+      type: DataTypes.STRING,
+      allowNull:false
+    },
+    description:{
+      
+    },
     category_id: { 
       type: DataTypes.INTEGER, 
       references: {

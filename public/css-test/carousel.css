@@ -23,6 +23,10 @@
     height: 195px;
 } */
 
+.card{
+    max-width: 340px;
+}
+
 .card-image{
     position: relative;
     height: 150px;

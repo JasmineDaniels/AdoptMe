@@ -1,0 +1,53 @@
+{{!-- <link rel="stylesheet" href="/css-test/carousel.css"> --}}
+
+<div class="container">
+    <div class="slide-container swiper">
+        <div class="slide-content">
+            
+            <div class="card-wrapper swiper-wrapper">
+                {{!-- {{#each dogs as |dog|}} --}}
+                <div class="card text-center swiper-slide">
+                    <div class="card-header">
+                        <h3 class="name"> {{Dog_name}}</h3>
+                    </div>
+                    <div class="image-content my-3">
+                        <div class="card-image">
+                            <img src="/images/image2.jpeg" alt="Black Lab" class="card-img">
+                        </div>
+                    </div>
+                    <div class="card-content mx-2 span4 collapse-group">
+                        <p class="description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repudiandae nulla facilis accusamus.
+                            </p>
+                            <p id="view-details1">
+                                <span class="breed-header"> Breed: <span class="breed-type">Yorkshire Terrier</span></span>
+                                <br>
+                                <span class="age-header"> Age: <span class="breed-type"> {{Age}} </span></span>
+                                <br>
+                                <span class="detailed-desc">ID: <span> {{id}} </span></span>
+                            </p>
+                            <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
+                            {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-success btn-rounded">Contact</button>
+                        <button type="button" class="btn btn-primary btn-rounded">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+
+                    
+                </div>
+                {{!-- {{/each}}  --}}
+            </div>
+            
+            {{!-- Navigation Buttons --}}
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+{{!-- Carousel By ID Script --}}
+<script src="/JavaScript/carouselByID.js" type="module"></script>
+
