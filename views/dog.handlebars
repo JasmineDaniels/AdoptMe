@@ -8,7 +8,7 @@
                 {{!-- {{#each dogs as |dog|}} --}}
                 <div class="card text-center swiper-slide">
                     <div class="card-header">
-                        <h3 class="name"> {{Dog_name}}</h3>
+                        <h3 class="name"> {{Pet_name}}</h3>
                     </div>
                     <div class="image-content my-3">
                         <div class="card-image">
@@ -17,14 +17,14 @@
                     </div>
                     <div class="card-content mx-2 span4 collapse-group">
                         <p class="description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repudiandae nulla facilis accusamus.
+                                {{description}}
                             </p>
                             <p id="view-details1">
-                                <span class="breed-header"> Breed: <span class="breed-type">Yorkshire Terrier</span></span>
+                                <span class="breed-header"> Breed: <span class="breed-type">{{breeds}}</span></span>
                                 <br>
                                 <span class="age-header"> Age: <span class="breed-type"> {{Age}} </span></span>
                                 <br>
-                                <span class="detailed-desc">ID: <span> {{id}} </span></span>
+                                <span class="detailed-desc">ID: <span class="breed-type"> {{id}} </span></span>
                             </p>
                             <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                             {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
