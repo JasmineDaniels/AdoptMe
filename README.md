@@ -13,11 +13,11 @@
 
 ## Contributing:
 
-Ismael
-Jasmine Daniels
-Steve Rosa
-Max McDonough
-Ortal Wikoff
+- Ismael
+- Jasmine Daniels
+- Steve Rosa
+- Max McDonough
+- Ortal Wikoff
  
 ## Description:
 
@@ -68,10 +68,10 @@ THEN I am automatically signed out of the site
 
 ## Heroku:
 
-Markup :  [Heroku Deployed Link](https://adoptme5.herokuapp.com/ "Heroku Deployed Link")
+[Heroku Deployed Link](https://adoptme5.herokuapp.com/ "Heroku Deployed Link")
 
 ## Github:
 
-Markup :  [Project Github Repo](https://github.com/JasmineDaniels/AdoptMe/ "Project Github Repo")
+[Project Github Repo](https://github.com/JasmineDaniels/AdoptMe/ "Project Github Repo")
 
     

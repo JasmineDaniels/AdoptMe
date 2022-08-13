@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-
 //added the public folder so we can use js and css in handlebars
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/static', express.static('public'))
