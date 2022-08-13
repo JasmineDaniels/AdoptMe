@@ -7,14 +7,11 @@ const router = require('express').Router();
 // router.get('/', (req, res) => {
 // //Get All dogs and related categories
 
-  
-// });
+// get one Dog
+router.get('/:id', async (req, res) => {
+  // find a single Dog by its `id`
 
-// // get one Dog
-// router.get('/:id', (req, res) => {
-//   // find a single Dog by its `id`
-
-// });
+});
 
 // // create new Dog
 // router.post('/', (req, res) => {
