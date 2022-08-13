@@ -1,6 +1,6 @@
 // import models
 const Dog = require('./Dogs');
-const User = require('./User');
+// const User = require('./User');
 const Category = require('./Category');
 
 Dog.belongsTo(Category, {
@@ -20,5 +20,5 @@ Category.hasMany(Dog, {
 module.exports = {
   Dog,
   Category,
-  User
+  // User
 };
