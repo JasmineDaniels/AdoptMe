@@ -15,8 +15,16 @@ const PORT = process.env.PORT || 3001;
 
 //handlebars initialization
 const hbs = exphbs.create({ helpers });
-  app.engine('handlebars', hbs.engine);
-  app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+
+
+//added the public folder so we can use js and css in handlebars
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.get('/', (req,res) => {
 //     res.render('homePage');
@@ -28,6 +36,10 @@ app.get('/myPage', (req,res) => {
 
 app.get('/login', (req,res) => {
   res.render('login');
+})
+
+app.get('/signup', (req,res) => {
+  res.render('signup');
 })
 
 // Middleware, set static public folder
@@ -42,9 +54,6 @@ app.use(require('./controllers/api/petfinder-test'));
 
 const routes = require('./controllers');
 app.use(routes);
-
-
-
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
