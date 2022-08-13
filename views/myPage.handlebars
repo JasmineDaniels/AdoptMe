@@ -1,3 +1,6 @@
+
+{{#if loggedIn}}
+
 <div id="mypage">
 
 
@@ -16,3 +19,8 @@
 <script src="/javascript/print.js"></script>
 
 </div>
+
+{{else}}
+<a href="/login">You must login first to view this painting</a>
+{{/if}}
+
