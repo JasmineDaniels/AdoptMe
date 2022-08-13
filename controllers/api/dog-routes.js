@@ -7,11 +7,11 @@ const { Dog, Category } = require('../../models');
 router.get('/', (req, res) => {
 //Get All dogs and related categories
 
-  
+
 });
 
 // get one Dog
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single Dog by its `id`
 
 });

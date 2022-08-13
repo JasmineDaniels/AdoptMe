@@ -9,17 +9,18 @@ User.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
     }, 
     User_name: { 
       type: DataTypes.STRING, 
       allowNull: false
     },
+    
     User_Fav: { 
-        type: DataTypes.STRING, 
-        allowNull: false,
+        type: DataTypes.INTEGER, 
+        allowNull: true,
         references: {
             model: 'Dog',
             key: 'id'
@@ -36,4 +37,4 @@ User.init(
   }
 );
 
-module.exports = User;
+//module.exports = User;

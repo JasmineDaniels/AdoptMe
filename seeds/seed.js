@@ -1,6 +1,6 @@
 const seedCategories = require('./category-seeds');
-const seeddogs = require('./dog-seeds');
-const seedUsers = require('./users_seeds');
+const seeddogs = require('./dog-seeds'); //Pets
+//const seedUsers = require('./users_seeds');
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
@@ -10,10 +10,8 @@ const seedAll = async () => {
   console.log('\n----- CATEGORIES SEEDED -----\n');
   await seeddogs();
   console.log('\n----- DOGS SEEDED -----\n');
-  process.exit(0);
-
-  await seedUsers();
-  console.log('\n----- Users SEEDED -----\n');
+  // await seedUsers();
+  // console.log('\n----- Users SEEDED -----\n');
   process.exit(0);
 };
 
