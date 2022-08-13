@@ -12,14 +12,12 @@ const makeCall = () => {
     }
 };
 
-
-
 // let token = getToken();
 
 router.post('/', async (req, res) => {
     try {
         const animalType = req.body;
-        const getToken = async () => {
+        const getToken = () => {
             return fetch('https://api.petfinder.com/v2/oauth2/token', {
                 method: 'POST',
                 body: `grant_type=client_credentials&client_id=${process.env.client_auth_id}&client_secret=${process.env.client_auth_secret}`,
@@ -38,7 +36,7 @@ router.post('/', async (req, res) => {
             });
         };
         const getPetfinder = async () => {
-            const url = `https://api.petfinder.com/v2/animals?${Object.keys(animalType)[0]}=${Object.values(animalType)[0]}`;
+            const url = `https://api.petfinder.com/v2/animals?${Object.keys(animalType)[0]}=${Object.values(animalType)[0]}&limit=5`;
             console.log(url);
             const options = {
                 method: 'get',
@@ -48,12 +46,16 @@ router.post('/', async (req, res) => {
             };
             fetch(url, options)
             .then( res => res.json())
-            .then( data => JSON.stringify(data));
+            .then( searchResults => {
+                console.log(searchResults);
+                return searchResults;
+                // res.render('searchResults', {searchResults});
+            });
         };
         console.log(animalType);
         let token = await getToken();
-        let data = await getPetfinder();
-        return data;
+        let searchResults = await getPetfinder();
+        return searchResults;
     } catch (err) {
       return res.status(500).json(err);
     

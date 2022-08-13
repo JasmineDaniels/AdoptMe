@@ -5,22 +5,24 @@ const petfinderSearchHandler = async (event) => {
   
     const animalType = document.querySelector('#animal-type').value;
 
-    const submitSearch = (data) => {
-      fetch('/api/petfinder', {
+    const submitSearch =  async (data) => {
+      await fetch('/api/petfinder', {
         method: 'POST',
         body: JSON.stringify({'type': data}),
         headers: { 'Content-Type': 'application/json' },
       })
-      .then(window.location.href = './searchResults')
-      .then(res => res.json)
-      .then(console.log);
+      .then(results => results.json())
+      .then(data => {
+        searchResults = data
+        console.log(searchResults)
+      });
+      // .then(window.location.href = './searchResults')
+      // .catch(err => res.status(500).send(err));
     };
-    submitSearch(animalType);
-    console.log(animalType);
+    let searchResults = await submitSearch(animalType);
+    console.log(searchResults);
 };
-  
 
-  
   document
     .querySelector('#petfinder-search')
     .addEventListener('submit', petfinderSearchHandler);

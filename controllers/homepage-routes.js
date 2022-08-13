@@ -10,7 +10,6 @@ router.get('/petfinder', async (req, res) => {
 
 router.get('/searchResults', async (req, res) => {
     res.render('searchResults');
-
 });
 
 module.exports = router;
