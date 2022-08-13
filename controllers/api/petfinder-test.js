@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
                 expires = new Date().getTime() + (data.expires_in * 1000);
             });
         };
-        const getPetfinder = async () => {
+        const getPetfinder = () => {
             const url = `https://api.petfinder.com/v2/animals?${Object.keys(animalType)[0]}=${Object.values(animalType)[0]}&limit=5`;
             console.log(url);
             const options = {
@@ -44,18 +44,25 @@ router.post('/', async (req, res) => {
                     'Authorization': `Bearer ${token}`
                 }
             };
-            fetch(url, options)
-            .then( res => res.json())
-            .then( searchResults => {
-                console.log(searchResults);
+            return fetch(url, options)
+            .then((res) => {
+                return res.json()
+            })
+            .then((searchResults) => {
+                // console.log(searchResults);
                 return searchResults;
                 // res.render('searchResults', {searchResults});
             });
         };
+
         console.log(animalType);
         let token = await getToken();
         let searchResults = await getPetfinder();
-        return searchResults;
+        console.log(searchResults);
+        res.status(200).json(searchResults);
+        // let searchResults = getPetfinder();
+        // console.log(searchResults);
+        // return searchResults;
     } catch (err) {
       return res.status(500).json(err);
     
