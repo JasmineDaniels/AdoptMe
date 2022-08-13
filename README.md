@@ -1,5 +1,5 @@
 
- # Adopt Me
+# Adopt Me
 
 ## Table of Contents: 
 
