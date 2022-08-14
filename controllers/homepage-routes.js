@@ -12,10 +12,10 @@ router.get('/', async (req,res) => {
     const pets = petData.map((pet) => pet.get({ plain: true }));
     res.render('homePage', { pets });
 
-    const dogData = await getAllDogs()
-    const dogs = dogData.map((dog) => dog.get({ plain: true }));
-    res.render('homePage', { dogs });
-    res.render('homePage', {layout: 'nav'});
+    // const dogData = await getAllDogs()
+    // const dogs = dogData.map((dog) => dog.get({ plain: true }));
+    // res.render('homePage', { dogs });
+    // res.render('homePage', {layout: 'nav'});
     // res.render('homePage');
 })
 
