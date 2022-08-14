@@ -4,9 +4,8 @@
 const User = require('./User');
 
 const Pet = require('./Pets');
-//const User = require('./User');
-
 const Category = require('./Category');
+
 
 Pet.belongsTo(Category, {
   foreignKey: 'category_id',
