@@ -1,12 +1,11 @@
 // import models
-<<<<<<< HEAD
+
 const Dog = require('./Dogs');
 const User = require('./User');
-=======
 
 const Pet = require('./Pets');
 //const User = require('./User');
->>>>>>> 9febe2ea2e3818410537f212efa34d38e137c50d
+
 const Category = require('./Category');
 
 Pet.belongsTo(Category, {
@@ -17,14 +16,12 @@ Category.hasMany(Pet, {
   foreignKey: 'category_id',
   onDelete: 'CASCADE',
 })
-<<<<<<< HEAD
+
 Category.hasMany(User, {
   foreignKey: 'category_id',
   onDelete: 'CASCADE',
 })
-=======
 
->>>>>>> 9febe2ea2e3818410537f212efa34d38e137c50d
 
 
 module.exports = {
