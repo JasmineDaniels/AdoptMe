@@ -22,7 +22,11 @@ const petfinderSearchHandler = async (event) => {
       .catch(err => response.status(500).send(err));
     };
     let searchResults = await submitSearch(animalType);
-    console.log(searchResults);
+    let searchIds = [];
+    searchResults.forEach((result) => {
+      searchIds.push(result.id);
+    });
+    console.log(searchIds);
 };
 
   document
