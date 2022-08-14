@@ -1,6 +1,6 @@
 // import models
 
-const Dog = require('./Dogs');
+// const Dog = require('./Dogs');
 const User = require('./User');
 
 const Pet = require('./Pets');
