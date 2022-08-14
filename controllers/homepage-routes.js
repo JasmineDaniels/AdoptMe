@@ -8,11 +8,16 @@ const getAllPets = () => {
 }
 
 router.get('/petfinder', async (req, res) => {
-    res.render('petfinder');
+    res.render('petfinder-search');
 });
 
-router.get('/searchResults', async (req, res) => {
-    res.render('searchResults');
+router.get('/searchResults/*', async (req, res) => {
+    console.log(req.params);
+    const searchIdArray = []
+
+
+
+    res.render('searchResults', {searchIdArray} );
 });
 
 router.get('/', async (req,res) => {

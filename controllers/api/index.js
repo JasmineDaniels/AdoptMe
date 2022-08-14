@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const categoryRoutes = require('./category-routes');
 const productRoutes = require('./dog-routes');
-const petfinder = require('./petfinder-test');
+const petfinder = require('./petfinder-routes');
 
 
 router.use('/categories', categoryRoutes);

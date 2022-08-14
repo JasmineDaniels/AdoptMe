@@ -6,14 +6,14 @@ const sequelize = require('../../config/connection.js');
 
 
 // Make call if token expired
-const makeCall = () => {
-    // If current token is invalid, get a new one
-    if (!expires || expires - new Date().getTime() < 1) {
-        getOAuth().then(function() {
-            // use access token
-        });
-    }
-};
+// const makeCall = () => {
+//     // If current token is invalid, get a new one
+//     if (!expires || expires - new Date().getTime() < 1) {
+//         getOAuth().then(function() {
+//             // use access token
+//         });
+//     }
+// };
 
 // let token = getToken();
 
@@ -33,9 +33,9 @@ router.post('/', async (req, res) => {
                 console.log(data);
                 return data.access_token;
                 // Store token data
-                token = data.access_token;
-                tokenType = data.token_type;
-                expires = new Date().getTime() + (data.expires_in * 1000);
+                // token = data.access_token;
+                // tokenType = data.token_type;
+                // expires = new Date().getTime() + (data.expires_in * 1000);
             });
         };
         const getPetfinder = () => {
@@ -52,9 +52,7 @@ router.post('/', async (req, res) => {
                 return res.json()
             })
             .then((searchResults) => {
-                // console.log(searchResults);
                 return searchResults;
-                // res.render('searchResults', {searchResults});
             });
         };
 

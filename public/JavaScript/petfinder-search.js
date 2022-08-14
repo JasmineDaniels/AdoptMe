@@ -18,15 +18,15 @@ const petfinderSearchHandler = async (event) => {
         console.log(results);
         return results;
       })
-      // .then(window.location.href = './searchResults');
       .catch(err => response.status(500).send(err));
     };
     let searchResults = await submitSearch(animalType);
-    let searchIds = [];
+    let redirectUrl = `./searchResults`;
     searchResults.forEach((result) => {
-      searchIds.push(result.id);
+      redirectUrl = `${redirectUrl}/${result.id}`;
     });
-    console.log(searchIds);
+    console.log(redirectUrl);
+    window.location.href = `${redirectUrl}`;
 };
 
   document
