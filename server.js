@@ -46,6 +46,7 @@ app.get('/signup', (req,res) => {
 
 // use homepage
 app.use(require('./controllers/homepage-routes'));
+app.use(require('./controllers/contact-routes'));
 
 
 sequelize.sync({ force: false }).then(() => {

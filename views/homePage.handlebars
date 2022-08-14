@@ -9,6 +9,58 @@
     <br>
   </header>
   
+  <section>
+    <form class="was-validated"> 
+      <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">What are you looking for?</option>
+          <option value="1">Dog</option>
+          <option value="2">Cat</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Breed</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Gender</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Age</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Weight</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+      <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Type:</option>
+          <option value="1">Cat</option>
+          <option value="2">Dog</option>
+        </select>
+    <br><br>
+        <button class="btn btn-dark" type="submit">Submit form</button>
+    </form>
+  </section>
 
 
   <section class="container">
@@ -38,6 +90,8 @@
                                   <span class="breed-header"> Breed: <span class="breed-type">{{pet.breeds}}</span></span>
                                   <br>
                                   <span class="age-header"> Age: <span class="breed-type"> {{pet.Age}} </span></span>
+                                  <br>
+                                  <span class="detailed-desc">Type: <span class="breed-type"> {{pet.type}} </span></span>
                                   <br>
                                   <span class="detailed-desc">ID: <span class="breed-type"> {{pet.id}} </span></span>
                               </p>

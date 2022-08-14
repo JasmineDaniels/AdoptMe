@@ -21,7 +21,7 @@
 
 .card-content{
     /* background-color: yellow; */
-    height: 195px;
+    /* height: 195px; */
     max-height: max-content;
 }
 
@@ -31,6 +31,7 @@
 
 .card{
     max-width: 340px;
+    max-height: max-content;
 }
 
 .card-image{
