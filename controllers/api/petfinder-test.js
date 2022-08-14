@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const fetch = require('node-fetch');
 require('dotenv').config();
+const { Pet } = require('../../models');
+const sequelize = require('../../config/connection.js');
+
 
 // Make call if token expired
 const makeCall = () => {
@@ -58,7 +61,17 @@ router.post('/', async (req, res) => {
         console.log(animalType);
         let token = await getToken();
         let searchResults = await getPetfinder();
-        console.log(searchResults);
+        searchResults = searchResults.animals;
+        searchResults.forEach(async (result) => {
+            await Pet.create({
+                Pet_name: result.name,
+                Age: result.age,
+                breeds: result.breeds.primary,
+                description: result.description,
+                petfinder_id: result.id,
+                // type_id: result.type
+            }); 
+        });
         res.status(200).json(searchResults);
         // let searchResults = getPetfinder();
         // console.log(searchResults);
