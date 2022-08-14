@@ -17,14 +17,14 @@ User.init(
       type: DataTypes.STRING, 
       allowNull: false
     },
-    User_Fav: { 
-        type: DataTypes.STRING, 
-        allowNull: false,
-        references: {
-            model: 'Dog',
-            key: 'id'
-          }, 
-      },
+    // User_Fav: { 
+    //     type: DataTypes.STRING, 
+    //     allowNull: false,
+    //     references: {
+    //         model: 'user',
+    //         key: 'id'
+    //       }, 
+    //   },
     
   },
   {
