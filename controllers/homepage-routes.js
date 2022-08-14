@@ -10,6 +10,17 @@ const getAllPets = () => {
 router.get('/signin', (req, res) => {
     res.render('homePage', {layout: 'nav'});
 })
+router.get('/petfinder', async (req, res) => {
+    res.render('petfinder-search');
+});
+
+router.get('/searchResults/*', async (req, res) => {
+    const params = req.params[0];
+    console.log(params);
+    const searchIdArray = params.split('/');
+    console.log(searchIdArray);
+    res.render('searchResults', {searchIdArray} );
+});
 
 router.get('/', async (req,res) => {
     const petData = await getAllPets()

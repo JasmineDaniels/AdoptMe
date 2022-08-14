@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Pet, Category } = require('../../models');
 
-// The `/api/Dogs` endpoint
+// // The `/api/Dogs` endpoint
 
 // get all Dogs
 router.get('/', (req, res) => {
@@ -91,11 +91,11 @@ router.put('/:id', (req, res) => {
     res.status(500).json(err);
   }
   
-});
+// });
 
-router.delete('/:id', (req, res) => {
-  // delete one Dog by its `id` value
+// router.delete('/:id', (req, res) => {
+//   // delete one Dog by its `id` value
 
-});
+// });
 
 module.exports = router;
