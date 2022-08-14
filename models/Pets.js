@@ -1,4 +1,5 @@
 // import important parts of sequelize library
+const { INTEGER } = require('sequelize');
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection.js');
@@ -23,15 +24,18 @@ Pet.init( //add type for Pets or cats
       allowNull: false,
     }, 
     Age: { 
-      type: DataTypes.FLOAT, 
+      type: DataTypes.STRING, 
       allowNull: false,
     },
     breeds: { //breeds:
       type: DataTypes.STRING,
       allowNull:false,
     },
-    description:{
+    description: {
       type: DataTypes.STRING,
+    },
+    petfinder_id: {
+      type: DataTypes.INTEGER,
       allowNull:false,
     },
     type_id: { 
