@@ -13,10 +13,22 @@ Category.init(
       primaryKey: true,
       autoIncrement: true
     }, 
-    category_name: { 
+    type: { // Type: Dog or Cat
       type: DataTypes.STRING, 
       allowNull: false
-    }
+    },
+    // user_id:{
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'User',
+    //     key: 'id'
+    //   }
+    // }
+    
+    // breeds:{ // Pet API breeds.primary && breeds.secondary
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // }
   },
   {
     sequelize,

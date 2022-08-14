@@ -2,22 +2,22 @@ const { Category } = require('../models');
 
 const categoryData = [
   {
-    category_name: 'Big'
+    type: 'Dog'
   },
   {
-    category_name: 'Medium'
+    type: 'Cat'
   },
   {
-    category_name: 'Small'
+    type: 'Snake'
   },
   {
-    category_name: 'Baby < 1'
+    type: 'Horse'
   },
   {
-    category_name: 'Young Btwn 1 and 4'
+    type: 'Pig'
   },
   {
-    category_name: 'Adult > 4'
+    type: 'Turtle'
   }
 ];
 

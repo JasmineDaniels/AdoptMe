@@ -1,14 +1,15 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
 
 const swiper = new Swiper(".slide-content", {
-  slidesPerView: 3,
+  slidesPerView: 1,
   spaceBetween: 25,
-  //slidesPerGroup: 3,
+  // slidesPerGroup: 1,
   // grid: {
   //   rows: 2,
   // },
-  loop: true,
-  // centerSlide: 'true',
+  // loop: true,
+  //centeredSlides: true,
+  //centeredSlidesBounds: true,
   // fade: 'true',
   //loopFillGroupWithBlank: true,
   pagination: {
@@ -30,37 +31,23 @@ const swiper = new Swiper(".slide-content", {
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 25,
     },
     1000: {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 25,
     },
   },
 });
 
-// One card toggle 
+
+
 // const showMore = () => {
 //   let details = document.getElementById('view-details1');
 //   details.classList.toggle("pToggle");
 // }
 
-
-// let detailButtons = document.getElementsByClassName('detailToggle');
-// for (let i = 0; i < detailButtons.length; i++){
-//   let button = detailButtons[i];
-//   button.addEventListener('click', showMore)
-// }
-
-// const showMore = (event) => {
-//   let btnClicked = event.target;
-//   console.log(`clicked`)
-//   btnClicked.classList.toggle("pToggle");
-// }
-
-
-//All Cards Toggle 
 // const showMore = () => {
 //   let detailButtons = document.getElementsByClassName('detailToggle');
 //   // let toggleBtns = document.getElementsByClassName('toggleBtn')

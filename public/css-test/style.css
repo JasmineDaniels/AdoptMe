@@ -30,7 +30,7 @@
     background-color: lightgray
 }
 
-.btn-primary {
+/* .btn-primary {
     padding: 15px 25px;
     font-size: 35px;
     text-align: center;
@@ -40,8 +40,8 @@
     background-color: #04AA6D;
     border: none;
     border-radius: 15px;
-    /* box-shadow: 0 9px #999; */
-  }
+    box-shadow: 0 9px #999; 
+  } */
 
   h2{
     font-family: 'Times New Roman', Times, serif;
