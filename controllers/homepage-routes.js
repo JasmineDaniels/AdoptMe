@@ -12,11 +12,10 @@ router.get('/petfinder', async (req, res) => {
 });
 
 router.get('/searchResults/*', async (req, res) => {
-    console.log(req.params);
-    const searchIdArray = []
-
-
-
+    const params = req.params[0];
+    console.log(params);
+    const searchIdArray = params.split('/');
+    console.log(searchIdArray);
     res.render('searchResults', {searchIdArray} );
 });
 

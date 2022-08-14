@@ -2,9 +2,17 @@
     petfinder search test!
 </h1>
 <h2>
-    {{#if searchResults }}
+    {{#if searchIdArray}}
     Display worked!
+    {{searchIdArray[0]}}
+    {{searchIdArray[1]}}
+    {{searchIdArray[2]}}
+    {{searchIdArray[3]}}
+    {{searchIdArray[4]}}
     {{else}}
     Sad face
     {{/if}}
 </h2>
+
+
+<script src="JavaScript/search-results.js"></script>
