@@ -1,10 +1,9 @@
 // import models
 
-// const Dog = require('./Dogs');
-const User = require('./User');
-
 const Pet = require('./Pets');
 const Category = require('./Category');
+//const Dog = require('./Dogs');
+//const User = require('./User');
 
 
 Pet.belongsTo(Category, {
@@ -16,15 +15,11 @@ Category.hasMany(Pet, {
   onDelete: 'CASCADE',
 })
 
-Category.hasMany(User, {
-  foreignKey: 'category_id',
-  onDelete: 'CASCADE',
-})
 
 
 
 module.exports = {
   Pet,
   Category,
-  User
+  //User
 };
