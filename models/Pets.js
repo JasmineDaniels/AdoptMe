@@ -36,7 +36,6 @@ Pet.init( //add type for Pets or cats
     },
     petfinder_id: {
       type: DataTypes.INTEGER,
-      allowNull:false,
     },
     type_id: { 
       type: DataTypes.INTEGER, 

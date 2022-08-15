@@ -10,8 +10,10 @@
 
 <form class="was-validated" id="petfinder-search"> 
   <div class="form-group">
+    <label for="location"> What type of pet are you looking for?</label>
+    <br>
     <select class="custom-select" name="type" id="animal-type" required>
-      <option value="">What type of pet are you looking for?</option>
+      <option value="" disabled selected hidden>Animal Type</option>
       <option value="dog">Dog</option>
       <option value="cat">Cat</option>
     </select>
@@ -48,6 +50,25 @@
       <option value="3">Three</option>
     </select>
 <br><br> --}}
+<br><br>
+    <div class="form-group">
+    <label for="location">What is the zip code where you would like to search?</label>
+    <br>
+    <input class="custom-input" type="text" pattern="\d*" name="location" minlength="5" maxlength="5" placeholder="Zip Code" required/>
+  <br><br>
+    <div class="form-group">
+      <label for="distance">How far would you like to search in miles?</label>
+    <br>
+    <select class="custom-select" name="distance" required>
+      <option value="" disabled selected hidden>Distance</option>
+      <option value="10">10 miles</option>
+      <option value="20">20 miles</option>
+      <option value="50">50 miles</option>
+      <option value="100">100 miles</option>
+      <option value="250">250 miles</option>
+      <option value="500">500 miles</option>
+    </select>
+  <br><br>
      <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 {{/if}}
