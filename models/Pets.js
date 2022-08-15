@@ -33,6 +33,7 @@ Pet.init( //add type for Pets or cats
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     petfinder_id: {
       type: DataTypes.INTEGER,
@@ -42,13 +43,17 @@ Pet.init( //add type for Pets or cats
       type: DataTypes.STRING, 
       allowNull: false
     },
-    category_id: { 
-      type: DataTypes.INTEGER, 
-      references: {
-        model: 'category',
-        key: 'id'
-      }
-    }
+    photos: {
+      type: DataTypes.BLOB,
+      allowNull: true,
+    },
+    // category_id: { 
+    //   type: DataTypes.INTEGER, 
+    //   references: {
+    //     model: 'category',
+    //     key: 'id'
+    //   }
+    // }
     // type_id: { 
     //   type: DataTypes.INTEGER, 
     //   references: {

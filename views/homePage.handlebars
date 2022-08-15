@@ -79,7 +79,7 @@
                       </div>
                       <div class="image-content my-3">
                           <div class="card-image">
-                              <img src="images/image1.jpeg" alt="Black Lab" class="card-img">
+                              <img src={{pet.photos}} alt="Black Lab" class="card-img">
                           </div>
                       </div>
                       <div class="card-content mx-2">
@@ -93,7 +93,7 @@
                                   <br>
                                   <span class="detailed-desc">Type: <span class="breed-type"> {{pet.type}} </span></span>
                                   <br>
-                                  <span class="detailed-desc">ID: <span class="breed-type"> {{pet.id}} </span></span>
+                                  <span class="detailed-desc">ID: <span class="breed-type"> {{pet.petfinder_id}} </span></span>
                               </p>
                               <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                               {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}

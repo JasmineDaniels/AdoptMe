@@ -67,6 +67,8 @@ router.post('/', async (req, res) => {
                 breeds: result.breeds.primary,
                 description: result.description,
                 petfinder_id: result.id,
+                type: result.type,
+                photos: result.photos.medium,
                 // type_id: result.type
             }); 
         });

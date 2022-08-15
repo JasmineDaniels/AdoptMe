@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
         description: req.body.description,
         breeds: req.body.breeds,
         Age: req.body.Age,
-        // type: req.body.type ?
+        //type: req.body.type ?
       })
       // if (req.body){ 
       //   const petArray = req.body.map((pet) => {
@@ -91,7 +91,7 @@ router.put('/:id', (req, res) => {
     res.status(500).json(err);
   }
   
-// });
+});
 
 // router.delete('/:id', (req, res) => {
 //   // delete one Dog by its `id` value
