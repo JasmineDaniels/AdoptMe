@@ -65,7 +65,7 @@
 
   <section class="container">
     <div>
-      <h2 id="group-type" class="text-center" style="font:bold; font-family:Verdana, Geneva, Tahoma, sans-serif">All Dogs</h2>
+      <h2 id="group-type" style="font:bold; font-family:Verdana, Geneva, Tahoma, sans-serif"></h2>
     </div>
     {{!-- Slider --}}
       <div class="slide-container swiper">
@@ -79,7 +79,7 @@
                       </div>
                       <div class="image-content my-3">
                           <div class="card-image">
-                              <img src={{pet.photos}} alt="Black Lab" class="card-img">
+                              <img src={{pet.photos}} alt="{{pet.breed}}" class="card-img">
                           </div>
                       </div>
                       <div class="card-content mx-2">

@@ -2,7 +2,7 @@
 
 const petfinderSearchHandler = async (event) => {
     event.preventDefault();
-    // if 
+    
     const animalType = document.querySelector('#animal-type').value;
 
     const submitSearch =  async (data) => {
@@ -27,13 +27,11 @@ const petfinderSearchHandler = async (event) => {
     // });
     // console.log(redirectUrl);
     //window.location.href = `${redirectUrl}`;
-
     if (searchResults){ //response.statusCode == 200
-      document.location.replace('/');
-      //document.location.replace(`/type/${animalType}`); // to lowercase
-      //document.location.replace(`/type/Dog`);
-
-
+      //document.location.replace('/');
+      //document.location.replace('/all')
+      document.location.replace(`/type/${animalType}`); // to lowercase
+      //document.location.replace(`/breed/${animalBreed}`); // to lowercase
     }
     
 

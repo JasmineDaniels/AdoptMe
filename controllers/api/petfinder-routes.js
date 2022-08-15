@@ -61,6 +61,10 @@ router.post('/', async (req, res) => {
         let searchResults = await getPetfinder();
         searchResults = searchResults.animals;
         searchResults.forEach(async (result) => {
+            //check if photo exists if not add placeholder
+            // if (searchResults.animals.photos == null){
+            //     searchResults.animals.photos == `https://via.placeholder.com/200`
+            // }
             await Pet.create({
                 Pet_name: result.name,
                 Age: result.age,
@@ -68,7 +72,8 @@ router.post('/', async (req, res) => {
                 description: result.description,
                 petfinder_id: result.id,
                 type: result.type,
-                photos: result.photos.medium,
+                // photos: result.photos,
+                photos: result.photos.small,
                 // type_id: result.type
             }); 
         });

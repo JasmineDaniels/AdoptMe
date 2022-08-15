@@ -97,6 +97,30 @@ router.get('/dog/:id', async (req, res) => {
     
 });
 
+// Search by pet finder id - still needs a view 
+router.get('/petfinderID/:petfinder_id', async (req, res) => {
+    // find a single Dog by its `id`
+    try {
+        const petData = await Pet.findAll({ 
+            where: {
+                petfinder_id: [req.params.petfinder_id] 
+            }
+        });
+        //const petData = await Pet.findByPk(req.params.id);
+        if (!petData){
+            res.status(404).json({message: `Sorry, No dogs in our system with and id of ${req.params.id}.`});
+            // return alertbox on client side?
+            return;
+        } else {
+            const dog = petData.get({plain: true});
+            res.render('dog', dog);
+        }   
+    } catch (error) {
+        res.status(500).json(error)
+    }
+    
+});
+
 router.get('/type/:type', async (req, res) => {
     // find pets by `type`
     try {

@@ -17,15 +17,26 @@ User.init(
       type: DataTypes.STRING, 
       allowNull: false
     },
-    
-    User_Fav: { 
-        type: DataTypes.INTEGER, 
-        allowNull: true,
-        references: {
-            model: 'Dog',
-            key: 'id'
-          }, 
-      },
+    // User_PW: { 
+    //   type: DataTypes.STRING, 
+    //   allowNull: false
+    // },
+    // User_Fav: { 
+    //   type: DataTypes.INTEGER, 
+    //   allowNull: true,
+    //   references: {
+    //     model: 'Pet', 
+    //     key: 'id' //petfinder_id
+    //   }, 
+    // },
+    // User_Contact: { 
+    //   type: DataTypes.INTEGER, 
+    //   allowNull: true,
+    //   references: {
+    //     model: 'Pet', 
+    //     key: 'id' //petfinder_id
+    //   }, 
+    // },
     
   },
   {
