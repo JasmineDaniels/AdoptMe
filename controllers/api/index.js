@@ -4,8 +4,19 @@ const categoryRoutes = require('./category-routes');
 const petfinder = require('./petfinder-routes');
 
 
+
 router.use('/categories', categoryRoutes);
 //router.use('/dogs', productRoutes);
 router.use('/petfinder', petfinder);
+const userroutes = require("./userroutes");
+
+const petfinder = require("./petfinder-routes");
+
+
+
+
+router.use("/User", userroutes);
+
+
 
 module.exports = router;

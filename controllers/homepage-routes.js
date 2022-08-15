@@ -1,6 +1,8 @@
 const { Pet } = require('../models');
 const { findAll } = require('../models/Pets');
 const router = require('express').Router();
+// const { User } = require('../models');
+// const withAuth = require('../utils/auth');
 
 const getAllPets = () => {
     const petDData = Pet.findAll()
@@ -64,12 +66,6 @@ router.get('/', async (req,res) => {
     const pets = petData.map((pet) => pet.get({ plain: true }));
     res.render('homePage', { pets });
 
-    // const dogData = await getAllDogs()
-    // const dogs = dogData.map((dog) => dog.get({ plain: true }));
-    // res.render('homePage', { dogs });
-    // res.render('homePage', {layout: 'nav'});
-    // res.render('homePage');
-})
 
 //tester area
 router.get('/all', async (req,res) => {
@@ -175,6 +171,11 @@ router.get('/breed/:breeds', async (req, res) => {
 //       res.json(error)
 //     }
 // })
+
+
+
+
+
 
 
 module.exports = router;
