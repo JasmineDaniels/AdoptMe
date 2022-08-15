@@ -61,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // use homepage
 app.use(require('./controllers/homepage-routes'));
+app.use(require('./controllers/contact-routes'));
 
 app.use(require('./controllers/api/petfinder-routes'));
 

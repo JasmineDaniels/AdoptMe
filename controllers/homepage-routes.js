@@ -9,16 +9,56 @@ const getAllPets = () => {
     return petDData
 }
 
+router.get('/signin', (req, res) => {
+    res.render('homePage', {layout: 'nav'});
+})
 router.get('/petfinder', async (req, res) => {
     res.render('petfinder-search');
 });
 
+// router.get('/searchResults/*', async (req, res) => {
+//     const params = req.params[0];
+//     console.log(params);
+//     const searchIdArray = params.split('/');
+//     console.log(searchIdArray);
+//     res.render('searchResults', {searchIdArray} );
+// });
+
 router.get('/searchResults/*', async (req, res) => {
-    const params = req.params[0];
-    console.log(params);
-    const searchIdArray = params.split('/');
-    console.log(searchIdArray);
-    res.render('searchResults', {searchIdArray} );
+    try {
+        // const typeData = await Pet.findAll({ 
+        //     where: {
+        //         type: [req.params.type] //validation case sensitive .lowerCase?
+        //     }
+        // });
+        // if (!typeData){
+        //     res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
+        //     // return alertbox on client side?
+        //     return;
+        // }
+        // const types = typeData.map((type) => type.get({ plain: true }));
+        // console.log(types)
+        // res.render('type', { types });
+
+        const breedData = await Pet.findAll({ 
+            where: {
+                breeds: [req.params.breeds] //validation case sensitive .lowerCase?
+            }
+        });
+        if (!breedData){
+            res.status(404).json({message: `Sorry, No ${req.params.breeds}'s are in our system..`});
+            // return alertbox on client side?
+            return;
+        }
+        const breeds = breedData.map((pet) => pet.get({ plain: true }));
+        console.log(breeds)
+        res.render('breed', { breeds });
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+    
 });
 
 router.get('/', async (req,res) => {
@@ -26,12 +66,6 @@ router.get('/', async (req,res) => {
     const pets = petData.map((pet) => pet.get({ plain: true }));
     res.render('homePage', { pets });
 
-    const dogData = await getAllDogs()
-    const dogs = dogData.map((dog) => dog.get({ plain: true }));
-    res.render('homePage', { dogs });
-    res.render('homePage', {layout: 'nav'});
-    res.render('homePage');
-})
 
 //tester area
 router.get('/all', async (req,res) => {
@@ -59,57 +93,69 @@ router.get('/dog/:id', async (req, res) => {
     
 });
 
+// Search by pet finder id - still needs a view 
+router.get('/petfinderID/:petfinder_id', async (req, res) => {
+    // find a single Dog by its `id`
+    try {
+        const petData = await Pet.findAll({ 
+            where: {
+                petfinder_id: [req.params.petfinder_id] 
+            }
+        });
+        //const petData = await Pet.findByPk(req.params.id);
+        if (!petData){
+            res.status(404).json({message: `Sorry, No dogs in our system with and id of ${req.params.id}.`});
+            // return alertbox on client side?
+            return;
+        } else {
+            const dog = petData.get({plain: true});
+            res.render('dog', dog);
+        }   
+    } catch (error) {
+        res.status(500).json(error)
+    }
+    
+});
+
+router.get('/type/:type', async (req, res) => {
+    // find pets by `type`
+    try {
+        const typeData = await Pet.findAll({ 
+            where: {
+                type: [req.params.type] //validation case sensitive .lowerCase?
+            }
+        });
+        if (!typeData){
+            res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
+            // return alertbox on client side?
+            return;
+        }
+        const types = typeData.map((type) => type.get({ plain: true }));
+        console.log(types)
+        res.render('type', { types });
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+});
+
 // get one Dog
 router.get('/breed/:breeds', async (req, res) => {
     // find a single Dog by its `breed`
     try {
-        // const breedData  = await getAllPets();
         const breedData = await Pet.findAll({ 
             where: {
-                breeds: [req.params.breeds]
+                breeds: [req.params.breeds] //validation case sensitive .lowerCase?
             }
-        })
-        console.log(breedData)
+        });
+        if (!breedData){
+            res.status(404).json({message: `Sorry, No ${req.params.breeds}'s are in our system..`});
+            // return alertbox on client side?
+            return;
+        }
         const breeds = breedData.map((pet) => pet.get({ plain: true }));
         console.log(breeds)
-
-        // const requestedBreeds  = breeds.find((pet) => {
-        //     pet.breeds == req.params.breeds
-        // })
-        
         res.render('breed', { breeds });
-        // const breedData = Dog.findAll({ 
-        //     where: {
-        //         breed: [{breed: req.params.breed}]
-        //     }
-        // })
-
-        
-        // .then((breed) => {
-        //     const breed = breed.get({plain: true});
-        //     res.render('breed', breed);
-        // })
-
-        // const { count, rows } = Dog.findAndCountAll({ 
-        //     where: {
-        //         breed: [req.params.breed]
-        //     }
-        // })
-        // const breed = rows.get({plain: true});
-        // res.render('breed', breed);
-        
-        
-        // if (!breedData){
-        //     res.status(404).json({message: `Sorry, No ${req.params.breed} dogs are in our system..`});
-        //     // return alertbox on client side?
-        //     return;
-        // } else {
-            // const breed = breedData.get({plain: true});
-            
-            //return res.render('breed', breeds[req.params.breed == breeds.breed]);
-            //res.render('breed', breeds);
-            // res.render('breed', requestedBreeds);
-        // }   
     } catch (error) {
         console.log(error)
         res.status(500).json(error)

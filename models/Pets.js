@@ -9,7 +9,7 @@ class Pet extends Model {}
 
 // set up fields and rules for Pet model
 
-//Pet
+
 Pet.init( //add type for Pets or cats
   {
     // define columns
@@ -19,7 +19,7 @@ Pet.init( //add type for Pets or cats
       allowNull: false,
       primaryKey: true,
     }, 
-    Pet_name: { //Pet_name
+    Pet_name: { 
       type: DataTypes.STRING, 
       allowNull: false,
     }, 
@@ -27,24 +27,40 @@ Pet.init( //add type for Pets or cats
       type: DataTypes.STRING, 
       allowNull: false,
     },
-    breeds: { //breeds:
+    breeds: { 
       type: DataTypes.STRING,
       allowNull:false,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     petfinder_id: {
       type: DataTypes.INTEGER,
       allowNull:false,
     },
-    type_id: { 
-      type: DataTypes.INTEGER, 
-      references: {
-        model: 'category',
-        key: 'id'
-      }
-    }
+    type: { // Type: Dog or Cat
+      type: DataTypes.STRING, 
+      allowNull: false
+    },
+    photos: {
+      type: DataTypes.BLOB,
+      allowNull: true,
+    },
+    // category_id: { 
+    //   type: DataTypes.INTEGER, 
+    //   references: {
+    //     model: 'category',
+    //     key: 'id'
+    //   }
+    // }
+    // type_id: { 
+    //   type: DataTypes.INTEGER, 
+    //   references: {
+    //     model: 'category',
+    //     key: 'id'
+    //   }
+    // },
     // user_id:{
     //   type: DataTypes.INTEGER,
     //   references: {
