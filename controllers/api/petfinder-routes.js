@@ -72,8 +72,8 @@ router.post('/', async (req, res) => {
                 description: result.description,
                 petfinder_id: result.id,
                 type: result.type,
-                // photos: result.photos,
-                photos: result.photos.small,
+                photos: result.photos,
+                // photos: result.photos.small,
                 // type_id: result.type
             }); 
         });
