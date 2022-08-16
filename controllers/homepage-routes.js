@@ -65,7 +65,7 @@ router.get('/', async (req,res) => {
     const petData = await getAllPets()
     const pets = petData.map((pet) => pet.get({ plain: true }));
     res.render('homePage', { pets });
-
+})
 
 //tester area
 router.get('/all', async (req,res) => {
