@@ -5,9 +5,10 @@ const petData = [ //add pet finder id and sm/med photo
     Pet_name: 'Rocky',
     Age: 1,
     breeds: 'German Shepherd',
-    description: 'Rocky is super playful and great with kids!', 
-    type_id: 1
-    //category_id: 1,
+    description: 'Rocky is super playful and great with kids!',
+    type: 'Dog', 
+    // type_id: 1
+    category_id: 1,
     //user_id: 1
   },
   {
@@ -15,8 +16,9 @@ const petData = [ //add pet finder id and sm/med photo
     Age: 3,
     breeds: 'Miniture Pinscher',
     description: 'Princess is adorably sweet and loves car rides!', 
-    type_id: 2
-    //category_id: 2,
+    type: 'Cat',
+    // type_id: 2
+    category_id: 2,
     //user_id: 2
   },
   {
@@ -24,8 +26,9 @@ const petData = [ //add pet finder id and sm/med photo
     Age: 7,
     breeds: 'Yorkshire Terrier',
     description: 'Chucky needs alot of love and attention, and he loves outdoors!',
-    type_id: 3 
-    //category_id: 3,
+    type: 'Snake',
+    // type_id: 3 
+    category_id: 3,
     //user_id: 3,
   },
   {
@@ -33,8 +36,29 @@ const petData = [ //add pet finder id and sm/med photo
     Age: 7,
     breeds: 'German Shepherd',
     description: 'Roman is a certified emotional support animal and loves traveling!',
-    type_id: 3 
-    //category_id: 3,
+    type: 'Dog',
+    // type_id: 3 
+    category_id: 4,
+    //user_id: 3,
+  },
+  {
+    Pet_name: 'Coco',
+    Age: 7,
+    breeds: 'German Shepherd',
+    description: 'Roman is a certified emotional support animal and loves traveling!',
+    type: 'Turtle',
+    // type_id: 3 
+    category_id: 5,
+    //user_id: 3,
+  },
+  {
+    Pet_name: 'Roman',
+    Age: 7,
+    breeds: 'German Shepherd',
+    description: 'Roman is a certified emotional support animal and loves traveling!',
+    type: 'Cat',
+    // type_id: 3 
+    category_id: 6,
     //user_id: 3,
   }
 ];

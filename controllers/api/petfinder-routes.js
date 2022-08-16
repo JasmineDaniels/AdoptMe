@@ -19,7 +19,7 @@ const sequelize = require('../../config/connection.js');
 
 router.post('/', async (req, res) => {
     try {
-        const animalType = req.body;
+        const searchData = req.body;
         const getToken = () => {
             return fetch('https://api.petfinder.com/v2/oauth2/token', {
                 method: 'POST',
@@ -39,7 +39,10 @@ router.post('/', async (req, res) => {
             });
         };
         const getPetfinder = () => {
-            const url = `https://api.petfinder.com/v2/animals?${Object.keys(animalType)[0]}=${Object.values(animalType)[0]}&limit=5`;
+            let url = 'https://api.petfinder.com/v2/animals?limit=10';
+            searchData.forEach((term) => {
+                url = `${url}&${Object.keys(term)}=${Object.values(term)}`;
+            });
             console.log(url);
             const options = {
                 method: 'get',
@@ -60,13 +63,24 @@ router.post('/', async (req, res) => {
         let token = await getToken();
         let searchResults = await getPetfinder();
         searchResults = searchResults.animals;
+        console.log(searchResults);
         searchResults.forEach(async (result) => {
+            //check if photo exists if not add placeholder
+            // if (searchResults.animals.photos == null){
+            //     searchResults.animals.photos == `https://via.placeholder.com/200`
+            // }
+            // let petPhoto = "";
+            // if (result.primary_photo_cropped === null) {
+            //     petPhoto = 
+            // }
             await Pet.create({
                 Pet_name: result.name,
                 Age: result.age,
                 breeds: result.breeds.primary,
                 description: result.description,
                 petfinder_id: result.id,
+                type: result.type,
+                // photos: result.photos,
                 // type_id: result.type
             }); 
         });

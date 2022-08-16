@@ -24,6 +24,13 @@ Category.init(
     //     key: 'id'
     //   }
     // }
+    // pet_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'Pet',
+    //     key: 'id'
+    //   }
+    // }
     
     // breeds:{ // Pet API breeds.primary && breeds.secondary
     //   type: DataTypes.STRING,

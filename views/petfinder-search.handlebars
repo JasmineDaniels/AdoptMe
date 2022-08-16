@@ -1,6 +1,3 @@
-{{#if searchResults }}
-  Display worked!
-{{else}}
 <h6>Thinking about getting a pet?<br>
       Every year thousands of of pepole are choosing to adopt!<br>
       Wonderful pets of all types, breeds and ages are available,<br>
@@ -54,12 +51,12 @@
     <div class="form-group">
     <label for="location">What is the zip code where you would like to search?</label>
     <br>
-    <input class="custom-input" type="text" pattern="\d*" name="location" minlength="5" maxlength="5" placeholder="Zip Code" required/>
+    <input class="custom-input" type="text" pattern="\d*" name="location" id="location" minlength="5" maxlength="5" placeholder="Zip Code" required/>
   <br><br>
     <div class="form-group">
       <label for="distance">How far would you like to search in miles?</label>
     <br>
-    <select class="custom-select" name="distance" required>
+    <select class="custom-select" name="distance" id="distance" required>
       <option value="" disabled selected hidden>Distance</option>
       <option value="10">10 miles</option>
       <option value="20">20 miles</option>
@@ -71,6 +68,5 @@
   <br><br>
      <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
-{{/if}}
 
 <script src="/JavaScript/petfinder-search.js"></script>

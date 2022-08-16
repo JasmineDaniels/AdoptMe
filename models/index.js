@@ -1,8 +1,10 @@
 // import models
 
 const Pet = require('./Pets');
-//const User = require('./User');
 const Category = require('./Category');
+//const Dog = require('./Dogs');
+//const User = require('./User');
+
 
 Pet.belongsTo(Category, {
   foreignKey: 'category_id',
@@ -15,8 +17,9 @@ Category.hasMany(Pet, {
 
 
 
+
 module.exports = {
   Pet,
   Category,
-  // User
+  //User
 };

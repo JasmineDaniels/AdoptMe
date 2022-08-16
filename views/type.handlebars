@@ -1,11 +1,3 @@
-<h1>
-    petfinder search test!
-</h1>
-<h2>
-    {{!-- {{#if searchIdArray}} --}}
-    Display worked!
-</h2>
-
 <div class="container">
     <div class="slide-container swiper">
         <div class="slide-content">
@@ -18,7 +10,7 @@
                     </div>
                     <div class="image-content my-3">
                         <div class="card-image">
-                            <img src="/images/image1.jpeg" alt="Black Lab" class="card-img">
+                            <img src={{type.photos}} alt="Black Lab" class="card-img">
                         </div>
                     </div>
                     <div class="card-content mx-2 span4 collapse-group">
@@ -32,7 +24,7 @@
                                 <br>
                                 <span class="detailed-desc">Type: <span class="breed-type"> {{type.type}} </span></span>
                                 <br>
-                                <span class="detailed-desc">ID: <span class="breed-type"> {{type.id}} </span></span>                                
+                                <span class="detailed-desc">ID: <span class="breed-type"> {{type.petfinder_id}} </span></span>                                
                             </p>
                             <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                             {{!-- <a style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
@@ -59,5 +51,3 @@
 
 {{!-- <script src="/JavaScript/carousel.js" type="module"></script> --}}
 <script src="/JavaScript/carouselByBreed.js" type="module"></script>
-
-{{!-- <script src="JavaScript/search-results.js"></script> --}}

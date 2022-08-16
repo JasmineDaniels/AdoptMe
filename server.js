@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.get('/', (req,res) => {
 //     res.render('homePage');
-// })
+// })j  
 
 app.get('/myPage', (req,res) => {
   res.render('myPage');

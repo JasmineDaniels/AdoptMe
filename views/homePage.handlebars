@@ -9,11 +9,63 @@
     <br>
   </header>
   
+  <section>
+    <form class="was-validated"> 
+      <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">What are you looking for?</option>
+          <option value="1">Dog</option>
+          <option value="2">Cat</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Breed</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Gender</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Age</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+        <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Weight</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+    <br><br>
+      <div class="form-group">
+        <select class="custom-select" required>
+          <option value="">Type:</option>
+          <option value="1">Cat</option>
+          <option value="2">Dog</option>
+        </select>
+    <br><br>
+        <button class="btn btn-dark" type="submit">Submit form</button>
+    </form>
+  </section>
 
 
   <section class="container">
     <div>
-      <h2 id="group-type" class="text-center" style="font:bold; font-family:Verdana, Geneva, Tahoma, sans-serif">All Dogs</h2>
+      <h2 id="group-type" style="font:bold; font-family:Verdana, Geneva, Tahoma, sans-serif"></h2>
     </div>
     {{!-- Slider --}}
       <div class="slide-container swiper">
@@ -27,7 +79,7 @@
                       </div>
                       <div class="image-content my-3">
                           <div class="card-image">
-                              <img src="images/image1.jpeg" alt="Black Lab" class="card-img">
+                              <img src={{pet.photos}} alt="{{pet.breed}}" class="card-img">
                           </div>
                       </div>
                       <div class="card-content mx-2">
@@ -39,7 +91,9 @@
                                   <br>
                                   <span class="age-header"> Age: <span class="breed-type"> {{pet.Age}} </span></span>
                                   <br>
-                                  <span class="detailed-desc">ID: <span class="breed-type"> {{pet.id}} </span></span>
+                                  <span class="detailed-desc">Type: <span class="breed-type"> {{pet.type}} </span></span>
+                                  <br>
+                                  <span class="detailed-desc">ID: <span class="breed-type"> {{pet.petfinder_id}} </span></span>
                               </p>
                               <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                               {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
