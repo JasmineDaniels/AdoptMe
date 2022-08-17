@@ -59,20 +59,26 @@ router.post('/', async (req, res) => {
             });
         };
 
-        console.log(animalType);
         let token = await getToken();
         let searchResults = await getPetfinder();
         searchResults = searchResults.animals;
         console.log(searchResults);
+        console.log(searchResults.length);
+        const filteredSearchResults = searchResults.filter((term) => {
+            return searchResults.includes(term.primary_photo_cropped.small);  
+        });
+        console.log(filteredSearchResults);
+        console.log(filteredSearchResults.length);
+
         searchResults.forEach(async (result) => {
-            //check if photo exists if not add placeholder
-            // if (searchResults.animals.photos == null){
-            //     searchResults.animals.photos == `https://via.placeholder.com/200`
-            // }
-            // let petPhoto = "";
-            // if (result.primary_photo_cropped === null) {
-            //     petPhoto = 
-            // }
+        //     //check if photo exists if not add placeholder
+        //     if (searchResults.animals.photos == null){
+        //         searchResults.animals.photos == `https://via.placeholder.com/200`
+        //     }
+        //     let petPhoto = "";
+        //     if (result.primary_photo_cropped === null) {
+        //         petPhoto = 
+        //     }
             await Pet.create({
                 Pet_name: result.name,
                 Age: result.age,
@@ -80,7 +86,7 @@ router.post('/', async (req, res) => {
                 description: result.description,
                 petfinder_id: result.id,
                 type: result.type,
-                // photos: result.photos,
+                // photos: result.primary_photo_cropped.small,
                 // type_id: result.type
             }); 
         });

@@ -1,20 +1,19 @@
-<h1>
+{{!-- <h1>
     petfinder search test!
-</h1>
-<h2>
+</h1> --}}
+{{!-- <h2> --}}
     {{!-- {{#if searchIdArray}} --}}
-    Display worked!
-</h2>
+    {{!-- Display worked!
+</h2> --}}
 
 <div class="container">
     <div class="slide-container swiper">
         <div class="slide-content">
-            {{!-- {{#each dogs as |dog|}} --}}
             <div class="card-wrapper swiper-wrapper">
-                {{#each types as |type|}}
+                {{#each results as |result|}}
                 <div class="card text-center swiper-slide">
                     <div class="card-header">
-                        <h3 class="name"> {{type.Pet_name}}</h3>
+                        <h3 class="name"> {{result.Pet_name}}</h3>
                     </div>
                     <div class="image-content my-3">
                         <div class="card-image">
@@ -23,16 +22,16 @@
                     </div>
                     <div class="card-content mx-2 span4 collapse-group">
                         <p class="description">
-                                {{type.description}}
+                                {{result.description}}
                             </p>
                             <p id="view-details1">
-                                <span class="breed-header"> Breed: <span class="breed-type">{{type.breeds}}</span></span>
+                                <span class="breed-header"> Breed: <span class="breed-type">{{result.breeds}}</span></span>
                                 <br>
-                                <span class="age-header"> Age: <span class="breed-type"> {{type.Age}} </span></span>
+                                <span class="age-header"> Age: <span class="breed-type"> {{result.Age}} </span></span>
                                 <br>
-                                <span class="detailed-desc">Type: <span class="breed-type"> {{type.type}} </span></span>
+                                <span class="detailed-desc">Type: <span class="breed-type"> {{result.type}} </span></span>
                                 <br>
-                                <span class="detailed-desc">ID: <span class="breed-type"> {{type.id}} </span></span>                                
+                                <span class="detailed-desc">ID: <span class="breed-type"> {{result.id}} </span></span>                                
                             </p>
                             <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                             {{!-- <a style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}

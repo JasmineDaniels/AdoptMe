@@ -16,13 +16,33 @@ router.get('/petfinder', async (req, res) => {
     res.render('petfinder-search');
 });
 
-// router.get('/searchResults/*', async (req, res) => {
-//     const params = req.params[0];
-//     console.log(params);
-//     const searchIdArray = params.split('/');
-//     console.log(searchIdArray);
-//     res.render('searchResults', {searchIdArray} );
-// });
+router.get('/searchResults/*', async (req, res) => {
+    try {
+        const params = req.params[0];
+        console.log(params);
+        const searchIdArray = params.split('/');
+        console.log(searchIdArray);
+        let searchResults = [];
+        (async() => {
+            for (let id of searchIdArray) {
+                let result = await Pet.findOne({
+                    where: {
+                        petfinder_id: id
+                    }
+                });
+              console.log(result);
+              searchResults.push(result);
+            }
+            console.log(searchResults);
+            const results = searchResults.map((result) => result.get({ plain: true }));
+            console.log(results);
+            res.render('searchResults', {results} );
+          })();
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    };
+});
 
 router.get('/searchResults/*', async (req, res) => {
     try {

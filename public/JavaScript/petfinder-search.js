@@ -27,18 +27,19 @@ const petfinderSearchHandler = async (event) => {
       .catch(err => response.status(500).send(err));
     };
     let searchResults = await submitSearch(searchData);
-    // let redirectUrl = `./searchResults`;
-    // searchResults.forEach((result) => {
-    //   redirectUrl = `${redirectUrl}/${result.id}`;
-    // });
-    // console.log(redirectUrl);
-    //window.location.href = `${redirectUrl}`;
-    if (searchResults){ //response.statusCode == 200
-      //document.location.replace('/');
-      //document.location.replace('/all')
-      document.location.replace(`/type/${animalType}`); // to lowercase
-      //document.location.replace(`/breed/${animalBreed}`); // to lowercase
-    }
+    let redirectUrl = `./searchResults`;
+    searchResults.forEach((result) => {
+      redirectUrl = `${redirectUrl}/${result.id}`;
+    });
+    console.log(redirectUrl);
+    window.location.href = `${redirectUrl}`;
+
+    // if (searchResults){ //response.statusCode == 200
+    //   //document.location.replace('/');
+    //   //document.location.replace('/all')
+    //   document.location.replace(`/type/${animalType}`); // to lowercase
+    //   //document.location.replace(`/breed/${animalBreed}`); // to lowercase
+    // }
     
 
 };
