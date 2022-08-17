@@ -28,7 +28,8 @@ router.get('/searchResults/*', async (req, res) => {
                 let result = await Pet.findOne({
                     where: {
                         petfinder_id: id
-                    }
+                    },
+                    attributes: ['id', 'Pet_name', 'Age', 'breeds', 'description', 'petfinder_id', 'type', 'photos']
                 });
               console.log(result);
               searchResults.push(result);

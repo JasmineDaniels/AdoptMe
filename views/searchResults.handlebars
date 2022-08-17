@@ -1,6 +1,6 @@
-{{!-- <h1>
-    petfinder search test!
-</h1> --}}
+<h1>
+    Your search returned {{results.length}} results:
+</h1>
 {{!-- <h2> --}}
     {{!-- {{#if searchIdArray}} --}}
     {{!-- Display worked!
@@ -17,7 +17,7 @@
                     </div>
                     <div class="image-content my-3">
                         <div class="card-image">
-                            <img src="/images/image1.jpeg" alt="Black Lab" class="card-img">
+                            <img src="{{result.photos}}" alt="Image of Pet" class="card-img">
                         </div>
                     </div>
                     <div class="card-content mx-2 span4 collapse-group">

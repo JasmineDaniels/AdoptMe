@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
             });
         };
         const getPetfinder = () => {
-            let url = 'https://api.petfinder.com/v2/animals?limit=10';
+            let url = 'https://api.petfinder.com/v2/animals?limit=100';
             searchData.forEach((term) => {
                 url = `${url}&${Object.keys(term)}=${Object.values(term)}`;
             });
@@ -65,12 +65,17 @@ router.post('/', async (req, res) => {
         console.log(searchResults);
         console.log(searchResults.length);
         const filteredSearchResults = searchResults.filter((term) => {
-            return searchResults.includes(term.primary_photo_cropped.small);  
+            // const isNull = Object.values(searchResults).every(value => {
+            //     if (value === null) {
+            //       return value = '';
+            //     }
+            //   });
+            return term.primary_photo_cropped;
         });
         console.log(filteredSearchResults);
         console.log(filteredSearchResults.length);
 
-        searchResults.forEach(async (result) => {
+        filteredSearchResults.forEach(async (result) => {
         //     //check if photo exists if not add placeholder
         //     if (searchResults.animals.photos == null){
         //         searchResults.animals.photos == `https://via.placeholder.com/200`
@@ -86,11 +91,11 @@ router.post('/', async (req, res) => {
                 description: result.description,
                 petfinder_id: result.id,
                 type: result.type,
-                // photos: result.primary_photo_cropped.small,
+                photos: result.primary_photo_cropped.small,
                 // type_id: result.type
             }); 
         });
-        res.status(200).json(searchResults);
+        res.status(200).json(filteredSearchResults);
         // let searchResults = getPetfinder();
         // console.log(searchResults);
         // return searchResults;

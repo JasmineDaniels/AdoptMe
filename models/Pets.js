@@ -43,7 +43,7 @@ Pet.init( //add type for Pets or cats
       allowNull: false
     },
     photos: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     // category_id: { 
