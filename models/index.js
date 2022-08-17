@@ -3,7 +3,7 @@
 const Pet = require('./Pets');
 const Category = require('./Category');
 //const Dog = require('./Dogs');
-//const User = require('./User');
+const User = require('./User');
 
 
 Pet.belongsTo(Category, {
@@ -21,5 +21,5 @@ Category.hasMany(Pet, {
 module.exports = {
   Pet,
   Category,
-  //User
+  User
 };

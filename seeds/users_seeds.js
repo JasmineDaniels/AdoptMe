@@ -1,22 +1,33 @@
-// const { User } = require('../models');
+const { User } = require('../models');
+
 
 const UserData = [
   {
-    User_name: 'Joann',
-    //category_id: 1
+    "email": "lelj28819@gmail.com",
+    "password": "password12345"
   },
   {
-    User_name: 'Sarah',
-    //category_id: 3
+    "email": "max.mcdonough@gmail.com",
+    "password": "password12345"
   },
   {
-    User_name: 'Tony',
+    "email": "create.jasminedaniels@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "email": "scrosa13@outlook.com",
+    "password": "password12345"
+  },
+  {
+    "email": "owikoff@gmail.com",
+    "password": "password12345"
   }
 ];
 
 const seedUser = () => User.bulkCreate(UserData);
 
-//module.exports = seedUser;
+
+module.exports = seedUser;
 
 
 
