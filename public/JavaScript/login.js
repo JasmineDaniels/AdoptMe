@@ -24,6 +24,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-var submitBTN = document.querySelector(".login-form");
+var submitBTN = document.querySelector("#btn_id");
 
 submitBTN.addEventListener("click", loginFormHandler);
