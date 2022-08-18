@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const passwordEl = document.querySelector("#password-login");
 
   // if (username && password) {
-    const response = await fetch('/api/user/login', {
+    const response = await fetch('/login', {
       method: "post",
       body: JSON.stringify({
         username: userNameEl.value,
