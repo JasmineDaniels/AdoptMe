@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{!-- Carousel CSS --}}
     <link rel="stylesheet" href="/css-test/carousel.css">
+    {{!-- Autocomplete CSS --}}
+    <link rel="stylesheet" href="/css-test/awesomplete.css" />
     {{!-- <link rel="stylesheet" href="CSS/style.css"> --}}
     {{!-- <link rel="stylesheet" href="/css/style.css"> --}}
     <link rel="stylesheet" href="/css-test/style.css">
@@ -56,6 +58,12 @@
       </div>
 
     </header>
+
+  {{!-- Breed variables to use for autocomplete --}}
+  <script src="/JavaScript/all-breeds.js" async></script>
+  {{!-- Autocomplete JS --}}
+  <script src="/JavaScript/awesomplete.js" async></script>
+  
     <main>
       {{{ body }}}
     </main>

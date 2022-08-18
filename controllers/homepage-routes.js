@@ -3,6 +3,7 @@ const { findAll } = require('../models/Pets');
 const router = require('express').Router();
 // const { User } = require('../models');
 // const withAuth = require('../utils/auth');
+let dogBreeds = require('../utils/all-breeds');
 
 const getAllPets = () => {
     const petDData = Pet.findAll()
@@ -13,7 +14,7 @@ router.get('/signin', (req, res) => {
     res.render('homePage', {layout: 'nav'});
 })
 router.get('/petfinder', async (req, res) => {
-    res.render('petfinder-search');
+    res.render('petfinder-search', {dogBreeds});
 });
 
 router.get('/searchResults/*', async (req, res) => {

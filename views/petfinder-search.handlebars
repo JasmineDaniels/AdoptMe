@@ -1,13 +1,8 @@
-<h6>Thinking about getting a pet?<br>
-      Every year thousands of of pepole are choosing to adopt!<br>
-      Wonderful pets of all types, breeds and ages are available,<br>
-      just waiting for your loving home.<br>
-      Please answer the questions below, so we know what are youlooking for?</h6>
-
+<h4>Please answer the questions below, so we know what you are looking for!</h4>
 
 <form class="was-validated" id="petfinder-search"> 
   <div class="form-group">
-    <label for="location"> What type of pet are you looking for?</label>
+    <label for="type"> What type of pet are you looking for?</label>
     <br>
     <select class="custom-select" name="type" id="animal-type" required>
       <option value="" disabled selected hidden>Animal Type</option>
@@ -15,38 +10,40 @@
       <option value="cat">Cat</option>
     </select>
 <br><br>
-    {{!-- <div class="form-group">
-    <select class="custom-select" required>
-      <option value="">Breed</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select> --}}
-{{!-- <br><br>
     <div class="form-group">
-    <select class="custom-select" required>
-      <option value="">Gender</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <label for="breed"> What breed?</label>
+    <br>
+    <input class="awesomplete custom-input dropdown-input" name="breed" id="breed" data-list="{{dogBreeds}}"/>
+<br><br>
+    <div class="form-group">
+    <label for="gender"> What gender?</label>
+    <br>
+    <select class="custom-select" name="gender" id="gender" required>
+      <option value="" disabled selected hidden>Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
     </select>
 <br><br>
     <div class="form-group">
-    <select class="custom-select" required>
-      <option value="">Age</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <label for="age"> What age?</label>
+    <br>
+    <select class="custom-select" name="age" id="age" required>
+      <option value="" disabled selected hidden>Age</option>
+      <option value="baby">Baby</option>
+      <option value="young">Young</option>
+      <option value="adult">Adult</option>
+      <option value="senior">Senior</option>
     </select>
 <br><br>
-    <div class="form-group">
-    <select class="custom-select" required>
-      <option value="">Weight</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <label for="size"> What size?</label>
+    <br>
+    <select class="custom-select" name="size" id="size" required>
+      <option value="" disabled selected hidden>Size</option>
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+      <option value="xlarge">Extra Large</option>
     </select>
-<br><br> --}}
 <br><br>
     <div class="form-group">
     <label for="location">What is the zip code where you would like to search?</label>

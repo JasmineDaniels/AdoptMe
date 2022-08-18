@@ -1,11 +1,13 @@
-// document.body.style.background = 'red';
-
 const petfinderSearchHandler = async (event) => {
     event.preventDefault();
     
     const animalType = document.querySelector('#animal-type').value;
     const searchData = [
       {'type': `${document.querySelector('#animal-type').value}`},
+      // {'breeds': `${document.querySelector('#breed').value}`},
+      // {'gender': `${document.querySelector('#gender').value}`},
+      // {'age': `${document.querySelector('#age').value}`},
+      // {'size': `${document.querySelector('#size').value}`},
       {'location': `${document.querySelector('#location').value}`},
       {'distance': `${document.querySelector('#distance').value}`}
     ];
