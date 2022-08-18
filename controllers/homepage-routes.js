@@ -1,25 +1,60 @@
+
 const router = require("express").Router();
 const { Pet } = require("../models");
 const { findAll } = require("../models/Pets");
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
+let dogBreeds = require('../utils/all-breeds');
+
 const getAllPets = () => {
-  const petDData = Pet.findAll();
-  return petDData;
+    const petDData = Pet.findAll()
+    return petDData
 };
 
-router.get("/petfinder", async (req, res) => {
-  res.render("petfinder-search");
+router.get('/', async (req,res) => {
+    const dogData = await getAllDogs()
+    const dogs = dogData.map((dog) => dog.get({ plain: true }));
+    res.render('homePage', {layout: 'nav'});
+    res.render('homePage', { dogs });
+    // res.render('homePage');
+
+router.get('/signin', (req, res) => {
+    res.render('homePage', {layout: 'nav'});
+})
+router.get('/petfinder', async (req, res) => {
+    res.render('petfinder-search', {dogBreeds});
+
 });
 
-// router.get('/searchResults/*', async (req, res) => {
-//     const params = req.params[0];
-//     console.log(params);
-//     const searchIdArray = params.split('/');
-//     console.log(searchIdArray);
-//     res.render('searchResults', {searchIdArray} );
-// });
+router.get('/searchResults/*', async (req, res) => {
+    try {
+        const params = req.params[0];
+        console.log(params);
+        const searchIdArray = params.split('/');
+        console.log(searchIdArray);
+        let searchResults = [];
+        (async() => {
+            for (let id of searchIdArray) {
+                let result = await Pet.findOne({
+                    where: {
+                        petfinder_id: id
+                    },
+                    attributes: ['id', 'Pet_name', 'Age', 'breeds', 'description', 'petfinder_id', 'type', 'photos']
+                });
+              console.log(result);
+              searchResults.push(result);
+            }
+            console.log(searchResults);
+            const results = searchResults.map((result) => result.get({ plain: true }));
+            console.log(results);
+            res.render('searchResults', {results} );
+          })();
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    };
+});
 
 router.get("/searchResults/*", async (req, res) => {
   try {
@@ -60,6 +95,7 @@ router.get("/searchResults/*", async (req, res) => {
   }
 });
 
+
 router.get("/", async (req, res) => {
   const petData = await getAllPets();
   const pets = petData.map((pet) => pet.get({ plain: true }));
@@ -71,6 +107,7 @@ router.get("/all", async (req, res) => {
   const petData = await getAllPets();
   const pets = petData.map((pet) => pet.get({ plain: true }));
   res.render("all", { pets });
+
 });
 
 // get One Dog by its ID
@@ -217,4 +254,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+
 module.exports = router;
+

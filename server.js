@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // app.get('/', (req,res) => {
 //     res.render('homePage');
-// })
+// })j  
 
 // app.get('/myPage', (req,res) => {
 //   res.render('myPage');

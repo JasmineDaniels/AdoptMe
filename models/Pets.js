@@ -37,14 +37,13 @@ Pet.init( //add type for Pets or cats
     },
     petfinder_id: {
       type: DataTypes.INTEGER,
-      allowNull:false,
     },
     type: { // Type: Dog or Cat
       type: DataTypes.STRING, 
       allowNull: false
     },
     photos: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     // category_id: { 
