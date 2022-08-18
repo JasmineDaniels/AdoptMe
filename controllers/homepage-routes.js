@@ -10,6 +10,13 @@ const getAllPets = () => {
     return petDData
 };
 
+router.get('/', async (req,res) => {
+    const dogData = await getAllDogs()
+    const dogs = dogData.map((dog) => dog.get({ plain: true }));
+    res.render('homePage', {layout: 'nav'});
+    res.render('homePage', { dogs });
+    // res.render('homePage');
+
 router.get('/signin', (req, res) => {
     res.render('homePage', {layout: 'nav'});
 })
