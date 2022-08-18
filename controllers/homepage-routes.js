@@ -176,7 +176,7 @@ router.get('/breed/:breeds', async (req, res) => {
 
 
 // Prevent non logged in users from viewing the homepage
-router.get('/myPage', withAuth, async (req, res) => {
+router.get('/myPage', withAuth ,async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -193,10 +193,13 @@ router.get('/myPage', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage
     if (req.session.logged_in) {
-      res.redirect('/myPage');
+        console.log('session2: ', req.session.logged_in)
+      res.redirect('/');
+
       return;
     }
   

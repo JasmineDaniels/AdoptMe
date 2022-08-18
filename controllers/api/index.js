@@ -4,10 +4,10 @@ const categoryRoutes = require("./category-routes");
 const petfinder = require("./petfinder-routes");
 const userroutes = require("./userroutes");
 
+router.use("/user", userroutes);
 router.use("/categories", categoryRoutes);
 //router.use('/dogs', productRoutes);
 router.use("/petfinder", petfinder);
 
-router.use("/User", userroutes);
 
 module.exports = router;
