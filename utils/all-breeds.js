@@ -2202,7 +2202,6 @@ const petfinderDogBreeds = [
 ];
 
 const dogBreeds = petfinderDogBreeds.map((entry) => entry.name);
-console.log(dogBreeds);
 
 module.exports = dogBreeds;
 
