@@ -1,25 +1,30 @@
 const router = require('express').Router();
-const { user } = require('../../models');
+const { User } = require('../../models');
 
-// router.post('/', async (req, res) => {
-//   try {
-//     const dbUserData = await User.create({
-//       username: req.body.username,
-//       email: req.body.email,
-//       password: req.body.password,
-//     });
+router.post('/', async (req, res) => {
+  try {
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    })
 
-//     req.session.save(() => {
-//       req.session.loggedIn = true;
+    .then((data) => res.json(data))
+    .then(
+    req.session.save(() => {
+      req.session.loggedIn = true;
 
-//       res.status(200).json(dbUserData);
-//     });
+      res.status(200).json(dbUserData);
+    })
+    );
 
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+
+
+});
 
 router.post('/login', async (req, res) => {
   try {
