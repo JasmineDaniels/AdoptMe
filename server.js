@@ -12,6 +12,17 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3001; 
 
+const sess = {
+  secret: 'secret pw',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
 
 //handlebars initialization
 const hbs = exphbs.create({ helpers });
@@ -50,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // use homepage
 app.use(require('./controllers/homepage-routes'));
+app.use(require('./controllers/contact-routes'));
 
 app.use(require('./controllers/api/petfinder-routes'));
 

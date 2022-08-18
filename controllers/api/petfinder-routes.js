@@ -27,7 +27,6 @@ router.post('/', async (req, res) => {
                 petfinder_id: result.id,
                 type: result.type,
                 photos: result.primary_photo_cropped.small,
-                // type_id: result.type
             }); 
         });
         res.status(200).json(filteredSearchResults);
