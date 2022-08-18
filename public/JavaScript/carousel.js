@@ -1,7 +1,11 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
 
 const swiper = new Swiper(".slide-content", {
+  autoplay: {delay: 0},
+  speed: 5000,
+  freeModeMomentum: false,
   slidesPerView: 3,
+  freemode: true,
   spaceBetween: 25,
   //slidesPerGroup: 3,
   // grid: {
@@ -19,7 +23,7 @@ const swiper = new Swiper(".slide-content", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
-  },
+  }, 
 
   breakpoints: {
     0: {

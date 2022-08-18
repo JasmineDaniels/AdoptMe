@@ -1,69 +1,52 @@
 <div id="homepage">
-  <header class="text-center">
-    <h4><b>Thinking about getting a pet?</b><h4><br>
-    <h4>Every year hundereds of thousands of pepole choose to adopt!
-      Wonderful pets of all types, breeds and ages are available <br>
-      just waiting for your loving home.
+  <header class="text-center conatiner col-12">
+    <h2><b>Thinking about getting a pet?</b><h2>
+    <h5>Every year hundereds of thousands of people choose to adopt!
+      Wonderful pets of all types, breeds, and ages are available, just waiting for your loving home.
       Please click on the heart so we can help match you with the perfect pet. 
-    </h4>
+    </h5>
     <br>
   </header>
-  
-  <section>
-    <form class="was-validated"> 
+
+  <div class="d-flex flex-row">
+  <aside class="container col-3 border">
+    <form class="was-validated" id="petfinder-search"> 
       <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">What are you looking for?</option>
-          <option value="1">Dog</option>
-          <option value="2">Cat</option>
-          <option value="3">Three</option>
+        <label for="type">What type of pet are you looking for?</label>
+        <br>
+        <select class="custom-select" name="type" id="animal-type" required>
+          <option value="" disabled selected hidden>Animal Type</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
         </select>
-    <br><br>
-        <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">Breed</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    <br><br>
-        <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">Gender</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    <br><br>
-        <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">Age</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    <br><br>
-        <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">Weight</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-    <br><br>
+        <br><br>
+      </div>
       <div class="form-group">
-        <select class="custom-select" required>
-          <option value="">Type:</option>
-          <option value="1">Cat</option>
-          <option value="2">Dog</option>
+        <label for="location">What is the zip code where you would like to search?</label>
+        <br>
+        <input class="custom-input" type="text" pattern="\d*" name="location" id="location" minlength="5" maxlength="5" placeholder="Zip Code" required/>
+        <br><br>
+      </div>    
+      <div class="form-group">
+        <label for="distance">How far would you like to search in miles?</label>
+        <br>
+        <select class="custom-select" name="distance" id="distance" required>
+          <option value="" disabled selected hidden>Distance</option>
+          <option value="10">10 miles</option>
+          <option value="20">20 miles</option>
+          <option value="50">50 miles</option>
+          <option value="100">100 miles</option>
+          <option value="250">250 miles</option>
+          <option value="500">500 miles</option>
         </select>
-    <br><br>
-        <button class="btn btn-dark" type="submit">Submit form</button>
+        <br><br>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
     </form>
-  </section>
+  </aside>
 
 
-  <section class="container">
+  <section class="container col-9 border">
     <div>
       <h2 id="group-type" style="font:bold; font-family:Verdana, Geneva, Tahoma, sans-serif"></h2>
     </div>
@@ -117,56 +100,9 @@
           </div>
       </div>
   </section>
-
+  </div>
 
 </div>
 
-
-<div>
-  {{!-- <form class="was-validated"> 
-    <div class="form-group">
-      <select class="custom-select" required>
-        <option value="">What are you looking for?</option>
-        <option value="1">Dog</option>
-        <option value="2">Cat</option>
-        <option value="3">Three</option>
-      </select>
-  <br><br>
-      <div class="form-group">
-      <select class="custom-select" required>
-        <option value="">Breed</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  <br><br>
-      <div class="form-group">
-      <select class="custom-select" required>
-        <option value="">Gender</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  <br><br>
-      <div class="form-group">
-      <select class="custom-select" required>
-        <option value="">Age</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  <br><br>
-      <div class="form-group">
-      <select class="custom-select" required>
-        <option value="">Weight</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  <br><br>
-      <button class="btn btn-dark" type="submit">Submit form</button>
-  </form> --}}
-</div>
-
-
+<script src="/JavaScript/petfinder-search.js"></script>
 <script src="JavaScript/carousel.js" type="module"></script>
