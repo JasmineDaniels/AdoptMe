@@ -1,24 +1,26 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector("#username-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const username = document.querySelector("#username-signup");
+  const email = document.querySelector("#email-signup");
+  const password = document.querySelector("#password-signup");
 
-  if (username && password) {
-    const response = await fetch("./api/userroutes", {
+  // if (username && password) {
+    const response = await fetch('./signup', {
       method: "post",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
       console.log("success");
       alert("New user created, please log in");
-      document.location.replace("./login");
+      sessionStorage.setItem("username", `${username}`)
+      document.location.replace('/login');
     } else {
       alert("Failed to sign up, please try again!");
     }
-  }
+  // }
 };
 
 var submitBTN = document.querySelector("#btn_id");

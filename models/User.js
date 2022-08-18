@@ -19,10 +19,10 @@ User.init(
       allowNull: false,
       primaryKey: true,
     },
-    // User_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     // User_Fav: {
     //   type: DataTypes.INTEGER,
     //   allowNull: true,

@@ -1,4 +1,7 @@
 
+{{!-- {{#if loggedIn}} --}}
+
+
 {{!-- if Contact Button is clicked - this page --}}
 
 <section class="container mb-4">
@@ -87,6 +90,7 @@
 
 
 {{#if loggedIn}}
+
   <div id="mypage">
     <div class="container" id="box">
       <div class="row well">
@@ -105,7 +109,8 @@
     </div>
     <script src="/javascript/print.js"></script>
   </div>
-{{else}}
+{{!-- {{else}} --}}
   <a href="/login">You must login first to view this page</a>
-{{/if}}
+
+{{!-- {{/if}} --}}
 
