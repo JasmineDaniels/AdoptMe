@@ -26,6 +26,3 @@ module.exports = sequelize;
 //         decimalNumbers: true,
 //       },
 //     });
-
-// module.exports = sequelize;
-

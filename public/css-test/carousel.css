@@ -19,9 +19,20 @@
     height: 480px
 } */
 
-/* .card-content{
-    height: 195px;
+.card-content{
+    /* background-color: yellow; */
+    /* height: 195px; */
+    max-height: max-content;
+}
+
+/* .swiper-slide {
+    height: auto;
 } */
+
+.card{
+    max-width: 340px;
+    max-height: max-content;
+}
 
 .card-image{
     position: relative;

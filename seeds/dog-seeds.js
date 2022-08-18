@@ -1,26 +1,68 @@
-const { Dog } = require('../models');
+const { Pet } = require('../models');
 
-const DogData = [
+const petData = [ //add pet finder id and sm/med photo
   {
-    Dog_name: 'Rocky',
+    Pet_name: 'Rocky',
     Age: 1,
-    Available: 1,
+    breeds: 'German Shepherd',
+    description: 'Rocky is super playful and great with kids!',
+    type: 'Dog', 
+    // type_id: 1
     category_id: 1,
+    //user_id: 1
   },
   {
-    Dog_name: 'Princess',
+    Pet_name: 'Princess',
     Age: 3,
-    Available: 1,
+    breeds: 'Miniture Pinscher',
+    description: 'Princess is adorably sweet and loves car rides!', 
+    type: 'Cat',
+    // type_id: 2
     category_id: 2,
+    //user_id: 2
   },
   {
-    Dog_name: 'Chucky',
+    Pet_name: 'Chucky',
     Age: 7,
-    Available: 1,
+    breeds: 'Yorkshire Terrier',
+    description: 'Chucky needs alot of love and attention, and he loves outdoors!',
+    type: 'Snake',
+    // type_id: 3 
     category_id: 3,
+    //user_id: 3,
+  },
+  {
+    Pet_name: 'Roman',
+    Age: 7,
+    breeds: 'German Shepherd',
+    description: 'Roman is a certified emotional support animal and loves traveling!',
+    type: 'Dog',
+    // type_id: 3 
+    category_id: 4,
+    //user_id: 3,
+  },
+  {
+    Pet_name: 'Coco',
+    Age: 7,
+    breeds: 'German Shepherd',
+    description: 'Roman is a certified emotional support animal and loves traveling!',
+    type: 'Turtle',
+    // type_id: 3 
+    category_id: 5,
+    //user_id: 3,
+  },
+  {
+    Pet_name: 'Roman',
+    Age: 7,
+    breeds: 'German Shepherd',
+    description: 'Roman is a certified emotional support animal and loves traveling!',
+    type: 'Cat',
+    // type_id: 3 
+    category_id: 6,
+    //user_id: 3,
   }
 ];
 
-const seedDogs = () => Dog.bulkCreate(DogData);
+const seedPets = () => Pet.bulkCreate(petData);
 
-module.exports = seedDogs;
+module.exports = seedPets;

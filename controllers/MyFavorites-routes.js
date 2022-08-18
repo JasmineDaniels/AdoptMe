@@ -3,72 +3,23 @@ const { findAll } = require('../models/Pets');
 const router = require('express').Router();
 const { User } = require('../models');
 const withAuth = require('../utils/auth');
-let dogBreeds = require('../utils/all-breeds');
 
 const getAllPets = () => {
     const petDData = Pet.findAll()
     return petDData
-};
-
-router.get('/', async (req,res) => {
-    const dogData = await getAllDogs()
-    const dogs = dogData.map((dog) => dog.get({ plain: true }));
-    res.render('homePage', {layout: 'nav'});
-    res.render('homePage', { dogs });
-    // res.render('homePage');
+}
 
 router.get('/signin', (req, res) => {
-    res.render('homePage', {layout: 'nav'});
+    res.render('MyPage', {layout: 'nav'});
 })
 router.get('/petfinder', async (req, res) => {
-    res.render('petfinder-search', {dogBreeds});
+    res.render('petfinder-search');
 });
+
 
 router.get('/searchResults/*', async (req, res) => {
     try {
-        const params = req.params[0];
-        console.log(params);
-        const searchIdArray = params.split('/');
-        console.log(searchIdArray);
-        let searchResults = [];
-        (async() => {
-            for (let id of searchIdArray) {
-                let result = await Pet.findOne({
-                    where: {
-                        petfinder_id: id
-                    },
-                    attributes: ['id', 'Pet_name', 'Age', 'breeds', 'description', 'petfinder_id', 'type', 'photos']
-                });
-              console.log(result);
-              searchResults.push(result);
-            }
-            console.log(searchResults);
-            const results = searchResults.map((result) => result.get({ plain: true }));
-            console.log(results);
-            res.render('searchResults', {results} );
-          })();
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    };
-});
-
-router.get('/searchResults/*', async (req, res) => {
-    try {
-        // const typeData = await Pet.findAll({ 
-        //     where: {
-        //         type: [req.params.type] //validation case sensitive .lowerCase?
-        //     }
-        // });
-        // if (!typeData){
-        //     res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
-        //     // return alertbox on client side?
-        //     return;
-        // }
-        // const types = typeData.map((type) => type.get({ plain: true }));
-        // console.log(types)
-        // res.render('type', { types });
-
+    
         const breedData = await Pet.findAll({ 
             where: {
                 breeds: [req.params.breeds] //validation case sensitive .lowerCase?
@@ -93,15 +44,15 @@ router.get('/searchResults/*', async (req, res) => {
 router.get('/', async (req,res) => {
     const petData = await getAllPets()
     const pets = petData.map((pet) => pet.get({ plain: true }));
-    res.render('homePage', { pets });
-});
+    res.render('MyPage', { pets });
+})
 
 //tester area
 router.get('/all', async (req,res) => {
     const petData = await getAllPets()
     const pets = petData.map((pet) => pet.get({ plain: true }));
     res.render('all', { pets });
-});
+})
 
 // get One Dog by its ID
 router.get('/dog/:id', async (req, res) => {
@@ -205,7 +156,7 @@ router.get('/breed/:breeds', async (req, res) => {
 
 
 // Prevent non logged in users from viewing the homepage
-router.get('/myPage', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -216,6 +167,7 @@ router.get('/myPage', withAuth, async (req, res) => {
 
     res.render('myPage', {
       users,
+      
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -225,14 +177,13 @@ router.get('/myPage', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage
     if (req.session.logged_in) {
-      res.redirect('/myPage');
+      res.redirect('/');
       return;
     }
   
     res.render('login');
   });
   
-
 
 
 
