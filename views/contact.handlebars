@@ -30,7 +30,7 @@
 
         <!--Grid column-->
         <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" class="contact-forms" action="https://formsubmit.co/contact.adoptme5@gmail.com" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -46,9 +46,12 @@
 
                     <!--Grid column-->
                     <div class="col-md-6">
+
                         <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control" required>
                             <label for="email" class="">Your email</label>
+
+                            
                         </div>
                     </div>
                     <!--Grid column-->
@@ -62,6 +65,7 @@
                         <div class="md-form mb-0">
                             <input type="text" id="subject" name="subject" class="form-control">
                             <label for="subject" class="">Subject</label>
+                            <input type="hidden" name="_subject" value={{petfinder_id}}>
                         </div>
                     </div>
                 </div>
@@ -85,7 +89,24 @@
             </form>
 
             <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Submit</a>
+                <button id="submit-form" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
+
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-md-center" style="background-color: blue; color: #fff">
+                                <h5 class="modal-title"> Success</h5>
+                                {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> --}}
+                            </div>
+                            <div class="modal-body mb-3">
+                                <h3> Congratulations! </h3> <br> <h5> We have recieved your adoption form! <br> One of our team members will contact you shortly. </h5>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-md-center">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="status"></div>
         </div>
@@ -113,3 +134,8 @@
 
 </section>
 <!--Section: Contact v.2-->
+
+<script src="/JavaScript/form-submit.js" type="module"></script>
+{{!-- action="https://formsubmit.co/el/36cdf350c1201af95a6069bf6ccc4a84" method="POST" --}}
+
+{{!-- action="https://formsubmit.co/el/77706fa8e92bcf72bf399319f99f3ebd" method="POST" --}}
