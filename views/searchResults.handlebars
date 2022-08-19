@@ -1,10 +1,32 @@
-<h1>
+<h3>
     Your search returned {{results.length}} results:
-</h1>
-{{!-- <h2> --}}
-    {{!-- {{#if searchIdArray}} --}}
-    {{!-- Display worked!
-</h2> --}}
+</h3>
+
+<h4>Filter Results:</h4>
+<div class="d-flex">
+    <form class="was-validated" id="filter-results">
+        <select class="custom-select" name="gender" id="gender">
+            <option value=null disabled selected hidden>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <select class="custom-select" name="age" id="age">
+            <option value=null disabled selected hidden>Age</option>
+            <option value="baby">Baby</option>
+            <option value="young">Young</option>
+            <option value="adult">Adult</option>
+            <option value="senior">Senior</option>
+        </select>
+        <select class="custom-select" name="size" id="size">
+            <option value=null disabled selected hidden>Size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xlarge">Extra Large</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Filter</button>
+    </form>
+</div>
 
 <div class="container">
     <div class="slide-container swiper">
@@ -59,4 +81,4 @@
 {{!-- <script src="/JavaScript/carousel.js" type="module"></script> --}}
 <script src="/JavaScript/carouselByBreed.js" type="module"></script>
 
-{{!-- <script src="JavaScript/search-results.js"></script> --}}
+<script src="/JavaScript/search-results.js"></script>

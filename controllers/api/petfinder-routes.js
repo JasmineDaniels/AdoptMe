@@ -5,6 +5,8 @@ const { Pet } = require('../../models');
 const sequelize = require('../../config/connection.js');
 const {getToken, getPetfinder} = require('../../utils/petfinder-helpers');
 
+let filteredSearchResults = [];
+
 // General Search for Pets by Type, Location, and Distance
 router.post('/', async (req, res) => {
     try {
@@ -13,10 +15,12 @@ router.post('/', async (req, res) => {
         const token = await getToken();
         let searchResults = await getPetfinder(token, searchData);
         searchResults = searchResults.animals;
+        console.log(searchResults);
         // Filter out Results without a Picture
-        const filteredSearchResults = searchResults.filter((term) => {
+        filteredSearchResults = searchResults.filter((term) => {
             return term.primary_photo_cropped;
         });
+        console.log(filteredSearchResults);
         // Commit Results to Database
         filteredSearchResults.forEach(async (result) => {
             await Pet.create({
@@ -34,5 +38,20 @@ router.post('/', async (req, res) => {
       return res.status(500).json(err);
     }
 });
+
+router.post('/filter', async (req, res) => {
+    try {
+        const filterData = req.body;
+        console.log(filterData);
+        
+
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+});
+
+
+
+
 
 module.exports = router;
