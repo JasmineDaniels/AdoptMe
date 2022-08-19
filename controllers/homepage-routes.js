@@ -1,106 +1,67 @@
-
 const router = require("express").Router();
 const { Pet } = require("../models");
 const { findAll } = require("../models/Pets");
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
-let dogBreeds = require('../utils/all-breeds');
+let dogBreeds = require("../utils/all-breeds");
 
 const getAllPets = () => {
-    const petDData = Pet.findAll()
-    return petDData
+  const petDData = Pet.findAll();
+  return petDData;
 };
-
-router.get('/', async (req,res) => {
-    const dogData = await getAllDogs()
-    const dogs = dogData.map((dog) => dog.get({ plain: true }));
-    res.render('homePage', {layout: 'nav'});
-    res.render('homePage', { dogs });
-});
-
-
-router.get('/signin', (req, res) => {
-    res.render('homePage', {layout: 'nav'});
-})
-router.get('/petfinder', async (req, res) => {
-    res.render('petfinder-search', {dogBreeds});
-
-});
-
-router.get('/searchResults/*', async (req, res) => {
-    try {
-        const params = req.params[0];
-        console.log(params);
-        const searchIdArray = params.split('/');
-        console.log(searchIdArray);
-        let searchResults = [];
-        (async() => {
-            for (let id of searchIdArray) {
-                let result = await Pet.findOne({
-                    where: {
-                        petfinder_id: id
-                    },
-                    attributes: ['id', 'Pet_name', 'Age', 'breeds', 'description', 'petfinder_id', 'type', 'photos']
-                });
-              console.log(result);
-              searchResults.push(result);
-            }
-            console.log(searchResults);
-            const results = searchResults.map((result) => result.get({ plain: true }));
-            console.log(results);
-            res.render('searchResults', {results} );
-          })();
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    };
-});
-
-router.get("/searchResults/*", async (req, res) => {
-  try {
-    // const typeData = await Pet.findAll({
-    //     where: {
-    //         type: [req.params.type] //validation case sensitive .lowerCase?
-    //     }
-    // });
-    // if (!typeData){
-    //     res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
-    //     // return alertbox on client side?
-    //     return;
-    // }
-    // const types = typeData.map((type) => type.get({ plain: true }));
-    // console.log(types)
-    // res.render('type', { types });
-
-    const breedData = await Pet.findAll({
-      where: {
-        breeds: [req.params.breeds], //validation case sensitive .lowerCase?
-      },
-    });
-    if (!breedData) {
-      res
-        .status(404)
-        .json({
-          message: `Sorry, No ${req.params.breeds}'s are in our system..`,
-        });
-      // return alertbox on client side?
-      return;
-    }
-    const breeds = breedData.map((pet) => pet.get({ plain: true }));
-    console.log(breeds);
-    res.render("breed", { breeds });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json(error);
-  }
-});
-
 
 router.get("/", async (req, res) => {
   const petData = await getAllPets();
   const pets = petData.map((pet) => pet.get({ plain: true }));
   res.render("homePage", { pets });
+
+  router.get("/signin", (req, res) => {
+    res.render("homePage", { layout: "nav" });
+  });
+  router.get("/petfinder", async (req, res) => {
+    res.render("petfinder-search", { dogBreeds });
+  });
+
+  router.get("/searchResults/*", async (req, res) => {
+    try {
+      const params = req.params[0];
+      console.log(params);
+      const searchIdArray = params.split("/");
+      console.log(searchIdArray);
+      let searchResults = [];
+      (async () => {
+        for (let id of searchIdArray) {
+          let result = await Pet.findOne({
+            where: {
+              petfinder_id: id,
+            },
+            attributes: [
+              "id",
+              "Pet_name",
+              "Age",
+              "breeds",
+              "description",
+              "petfinder_id",
+              "type",
+              "photos",
+            ],
+          });
+          console.log(result);
+          searchResults.push(result);
+        }
+        console.log(searchResults);
+        const results = searchResults.map((result) =>
+          result.get({ plain: true })
+        );
+        console.log(results);
+        res.render("searchResults", { results });
+      })();
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+  });
 });
 
 //tester area
@@ -108,7 +69,6 @@ router.get("/all", async (req, res) => {
   const petData = await getAllPets();
   const pets = petData.map((pet) => pet.get({ plain: true }));
   res.render("all", { pets });
-
 });
 
 // get One Dog by its ID
@@ -117,11 +77,9 @@ router.get("/dog/:id", async (req, res) => {
   try {
     const petData = await Pet.findByPk(req.params.id);
     if (!petData) {
-      res
-        .status(404)
-        .json({
-          message: `Sorry, No dogs in our system with and id of ${req.params.id}.`,
-        });
+      res.status(404).json({
+        message: `Sorry, No dogs in our system with and id of ${req.params.id}.`,
+      });
       // return alertbox on client side?
       return;
     } else {
@@ -144,11 +102,9 @@ router.get("/petfinderID/:petfinder_id", async (req, res) => {
     });
     //const petData = await Pet.findByPk(req.params.id);
     if (!petData) {
-      res
-        .status(404)
-        .json({
-          message: `Sorry, No dogs in our system with and id of ${req.params.id}.`,
-        });
+      res.status(404).json({
+        message: `Sorry, No dogs in our system with and id of ${req.params.id}.`,
+      });
       // return alertbox on client side?
       return;
     } else {
@@ -194,11 +150,9 @@ router.get("/breed/:breeds", async (req, res) => {
       },
     });
     if (!breedData) {
-      res
-        .status(404)
-        .json({
-          message: `Sorry, No ${req.params.breeds}'s are in our system..`,
-        });
+      res.status(404).json({
+        message: `Sorry, No ${req.params.breeds}'s are in our system..`,
+      });
       // return alertbox on client side?
       return;
     }
@@ -254,6 +208,5 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-
 
 module.exports = router;
