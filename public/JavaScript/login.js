@@ -5,23 +5,34 @@ const loginFormHandler = async (event) => {
   const passwordEl = document.querySelector("#password-login");
 
   // if (username && password) {
-    const response = await fetch('/api/User/login', {
-      method: "post",
+  const sendLogin =  async (userNameEl, passwordEl) => {
+    return fetch('/api/User/login', {
+      method: "POST",
       body: JSON.stringify({
         username: userNameEl.value,
         password: passwordEl.value,
       }),
       headers: { "Content-Type": "application/json" },
-    });
+    })
+    .then((response) => {
+      return response;
+    })
+    // .then((results) => {
+    //   console.log(results);
+    //   return results;
+    // })
+    .catch(err => response.status(500).send(err));
+  };
 
-console.log('data', response)
+  let response = await sendLogin(userNameEl, passwordEl);
 
     if (response.ok) {
+      alert("You are now logged in!");
       // sessionStorage.setItem("username", `${username}`)
 
       document.location.replace('/myPage');
     } else {
-      alert("failed to log in");
+      alert("Failed to log in");
     }
   // }
 };
