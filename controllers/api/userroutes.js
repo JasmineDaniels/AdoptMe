@@ -14,19 +14,16 @@ router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
-      email: req.body.email,
+      // email: req.body.email,
       password: req.body.password,
-    })
-
-    .then((data) => res.json(data))
-    .then(
+    });
+    console.log(dbUserData);
+    // (data) => res.json(data))
     req.session.save(() => {
       req.session.loggedIn = true;
 
       res.status(200).json(dbUserData);
-    })
-    );
-
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

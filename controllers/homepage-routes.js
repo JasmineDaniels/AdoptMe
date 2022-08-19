@@ -210,17 +210,23 @@ router.get("/signup", (req, res) => {
 // Prevent non logged in users from viewing the favorites page
 router.get("/myPage", withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-      order: [["name", "ASC"]],
+    console.log(req.session)
+    let userData = await User.findOne({
+      where: {
+        id: [req.session.user_id]
+      },
+      attributes: [
+        "username"
+      ],
     });
+    userData = userData.dataValues;
+    console.log(userData);
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const petData = await getAllPets();
+    const pets = petData.map((pet) => pet.get({ plain: true }));
 
-    res.render("myPage", {
-      users,
-      logged_in: req.session.logged_in,
-    });
+    res.render("myPage", {userData, pets});
+
   } catch (err) {
     res.status(500).json(err);
   }

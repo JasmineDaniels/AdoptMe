@@ -19,17 +19,8 @@ document.querySelector('#submit-form').addEventListener('click', (event) => {
     console.log(petID)
     const message = document.getElementsByTagName('textarea')[0].value;
     console.log(message)
-    
-        // const name = document.querySelector('#name').value;
-        // console.log(name)
-        // const email = document.querySelector('#email').value;
-        // console.log(email)
-        // const subject = document.querySelector('#subject').value;
-        // console.log(subject)
-        // const message = document.querySelector('#message').value;
-        // console.log(message)
 
-        fetch('https://formsubmit.co/ajax/77706fa8e92bcf72bf399319f99f3ebd', {
+        fetch('https://formsubmit.co/ajax/contact.adoptme5@gmail.com', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
