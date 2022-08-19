@@ -20,7 +20,7 @@ document.querySelector('#submit-form').addEventListener('click', (event) => {
     const message = document.getElementsByTagName('textarea')[0].value;
     console.log(message)
 
-        fetch('https://formsubmit.co/ajax/contact.adoptme5@gmail.com', {
+        fetch('https://formsubmit.co/ajax/c7a6b6fa74e4993a860196f136b23d2b', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
