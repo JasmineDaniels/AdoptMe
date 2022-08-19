@@ -17,7 +17,8 @@ router.get('/', async (req,res) => {
     const dogs = dogData.map((dog) => dog.get({ plain: true }));
     res.render('homePage', {layout: 'nav'});
     res.render('homePage', { dogs });
-    // res.render('homePage');
+});
+
 
 router.get('/signin', (req, res) => {
     res.render('homePage', {layout: 'nav'});
@@ -256,4 +257,3 @@ router.get("/login", (req, res) => {
 
 
 module.exports = router;
-
