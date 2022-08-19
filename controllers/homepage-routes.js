@@ -46,42 +46,42 @@ router.get('/searchResults/*', async (req, res) => {
     };
 });
 
-router.get('/searchResults/*', async (req, res) => {
-    try {
-        // const typeData = await Pet.findAll({ 
-        //     where: {
-        //         type: [req.params.type] //validation case sensitive .lowerCase?
-        //     }
-        // });
-        // if (!typeData){
-        //     res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
-        //     // return alertbox on client side?
-        //     return;
-        // }
-        // const types = typeData.map((type) => type.get({ plain: true }));
-        // console.log(types)
-        // res.render('type', { types });
+// router.get('/searchResults/*', async (req, res) => {
+//     try {
+//         // const typeData = await Pet.findAll({ 
+//         //     where: {
+//         //         type: [req.params.type] //validation case sensitive .lowerCase?
+//         //     }
+//         // });
+//         // if (!typeData){
+//         //     res.status(404).json({message: `Sorry, No ${req.params.type}s are in our system..`});
+//         //     // return alertbox on client side?
+//         //     return;
+//         // }
+//         // const types = typeData.map((type) => type.get({ plain: true }));
+//         // console.log(types)
+//         // res.render('type', { types });
 
-        const breedData = await Pet.findAll({ 
-            where: {
-                breeds: [req.params.breeds] //validation case sensitive .lowerCase?
-            }
-        });
-        if (!breedData){
-            res.status(404).json({message: `Sorry, No ${req.params.breeds}'s are in our system..`});
-            // return alertbox on client side?
-            return;
-        }
-        const breeds = breedData.map((pet) => pet.get({ plain: true }));
-        console.log(breeds)
-        res.render('breed', { breeds });
+//         const breedData = await Pet.findAll({ 
+//             where: {
+//                 breeds: [req.params.breeds] //validation case sensitive .lowerCase?
+//             }
+//         });
+//         if (!breedData){
+//             res.status(404).json({message: `Sorry, No ${req.params.breeds}'s are in our system..`});
+//             // return alertbox on client side?
+//             return;
+//         }
+//         const breeds = breedData.map((pet) => pet.get({ plain: true }));
+//         console.log(breeds)
+//         res.render('breed', { breeds });
 
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).json(error)
+//     }
     
-});
+// });
 
 router.get('/', async (req,res) => {
     const petData = await getAllPets()
@@ -194,6 +194,31 @@ router.get('/breed/:breeds', async (req, res) => {
 //     }
 // })
 
+// get One Dog by its ID
+router.get('/contact/:petfinder_id', async (req, res) => {
+    // find a single Dog by its `id`
+    try {
+        const petData = await Pet.findOne({ 
+            where: {
+                petfinder_id: [req.params.petfinder_id] 
+            }
+        });
+
+        if (!petData){
+            res.status(404).json({message: `Sorry, No dogs in our system with and id of ${req.params.id}.`});
+            // return alertbox on client side?
+            return;
+        } else {
+            const pet = petData.get({plain: true});
+            //const pID = pet.petfinder_id
+            //res.render('dog', dog);
+            res.render('contact', pet );
+        }   
+    } catch (error) {
+        res.status(500).json(error)
+    }
+    
+});
 
 
 

@@ -56,13 +56,13 @@
               {{!-- {{#each dogs as |dog|}} --}}
               <div class="card-wrapper swiper-wrapper">
                   {{#each pets as |pet|}}
-                  <div class="card text-center swiper-slide">
+                  <div class="card text-center swiper-slide h-100">
                       <div class="card-header">
                           <h3 class="name"> {{pet.Pet_name}}</h3>
                       </div>
                       <div class="image-content my-3">
                           <div class="card-image">
-                              <img src={{pet.photos}} alt="{{pet.breed}}" class="card-img">
+                              <img src={{pet.photos}} alt={{pet.breed}} id={{pet.photos}} class="card-img">
                           </div>
                       </div>
                       <div class="card-content mx-2">
@@ -82,7 +82,7 @@
                               {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
                       </div>
                       <div class="card-footer">
-                          <button type="button" class="btn btn-success btn-rounded">Contact</button>
+                          <button type="button" id={{pet.petfinder_id}} class="btn btn-success btn-rounded contact-pet">Contact</button>
                           <button type="button" class="btn btn-primary btn-rounded">
                               <i class="fa-solid fa-heart"></i>
                           </button>
@@ -106,3 +106,4 @@
 
 <script src="/JavaScript/petfinder-search.js"></script>
 <script src="JavaScript/carousel.js" type="module"></script>
+<script src="JavaScript/contact.js" type="module"></script>
