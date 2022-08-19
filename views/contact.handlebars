@@ -30,7 +30,7 @@
 
         <!--Grid column-->
         <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" class="contact-forms" action="https://formsubmit.co/el/77706fa8e92bcf72bf399319f99f3ebd" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -39,6 +39,7 @@
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                             <input type="text" id="name" name="name" class="form-control">
+                            {{!-- <textarea name="name" id="name" cols="30" rows="1"></textarea> --}}
                             <label for="name" class="">Your name</label>
                         </div>
                     </div>
@@ -46,9 +47,12 @@
 
                     <!--Grid column-->
                     <div class="col-md-6">
+
                         <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control" required>
                             <label for="email" class="">Your email</label>
+
+                            
                         </div>
                     </div>
                     <!--Grid column-->
@@ -85,7 +89,8 @@
             </form>
 
             <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Submit</a>
+                <button id="submit-form" type="button" class="btn btn-primary">Submit</button>
+                {{!-- <a id="submit-form" type="submit" class="btn btn-primary">Submit</a> --}}
             </div>
             <div class="status"></div>
         </div>
@@ -113,3 +118,8 @@
 
 </section>
 <!--Section: Contact v.2-->
+
+<script src="/JavaScript/form-submit.js" type="module"></script>
+{{!-- action="https://formsubmit.co/el/36cdf350c1201af95a6069bf6ccc4a84" method="POST" --}}
+
+{{!-- action="https://formsubmit.co/el/77706fa8e92bcf72bf399319f99f3ebd" method="POST" --}}
