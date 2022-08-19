@@ -15,7 +15,10 @@ Category.hasMany(Pet, {
   onDelete: 'CASCADE',
 })
 
-
+User.hasMany(Pet, {
+  foreignKey: 'category_id',
+  onDelete: 'CASCADE',
+})
 
 
 module.exports = {
