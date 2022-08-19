@@ -15,6 +15,8 @@ document.querySelector('#submit-form').addEventListener('click', (event) => {
     console.log(email)
     const subject = document.getElementsByTagName('input')[2].value;
     console.log(subject)
+    const petID = document.getElementsByTagName('input')[3].value;
+    console.log(petID)
     const message = document.getElementsByTagName('textarea')[0].value;
     console.log(message)
     
@@ -37,6 +39,7 @@ document.querySelector('#submit-form').addEventListener('click', (event) => {
                 name,
                 email,
                 subject,
+                petID,
                 message,
             })
         })

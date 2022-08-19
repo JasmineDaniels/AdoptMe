@@ -39,7 +39,6 @@
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                             <input type="text" id="name" name="name" class="form-control">
-                            {{!-- <textarea name="name" id="name" cols="30" rows="1"></textarea> --}}
                             <label for="name" class="">Your name</label>
                         </div>
                     </div>
@@ -66,6 +65,7 @@
                         <div class="md-form mb-0">
                             <input type="text" id="subject" name="subject" class="form-control">
                             <label for="subject" class="">Subject</label>
+                            <input type="hidden" name="_subject" value={{petfinder_id}}>
                         </div>
                     </div>
                 </div>
@@ -89,8 +89,24 @@
             </form>
 
             <div class="text-center text-md-left">
-                <button id="submit-form" type="button" class="btn btn-primary">Submit</button>
-                {{!-- <a id="submit-form" type="submit" class="btn btn-primary">Submit</a> --}}
+                <button id="submit-form" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Submit</button>
+
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-md-center" style="background-color: blue; color: #fff">
+                                <h5 class="modal-title"> Success</h5>
+                                {{!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> --}}
+                            </div>
+                            <div class="modal-body mb-3">
+                                <h3> Congratulations! </h3> <br> <h5> We have recieved your adoption form! <br> One of our team members will contact you shortly. </h5>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-md-center">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="status"></div>
         </div>
