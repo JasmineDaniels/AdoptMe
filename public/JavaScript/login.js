@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const passwordEl = document.querySelector("#password-login");
 
   // if (username && password) {
-    const response = await fetch('/login', {
+    const response = await fetch('/api/User/login', {
       method: "post",
       body: JSON.stringify({
         username: userNameEl.value,
@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
 console.log('data', response)
 
     if (response.ok) {
-      sessionStorage.setItem("username", `${username}`)
+      // sessionStorage.setItem("username", `${username}`)
 
       document.location.replace('/myPage');
     } else {
