@@ -15,15 +15,17 @@ router.get("/", async (req, res) => {
   const petData = await getAllPets();
   const pets = petData.map((pet) => pet.get({ plain: true }));
   res.render("homePage", { pets });
+})
 
-  router.get("/signin", (req, res) => {
+router.get("/signin", (req, res) => {
     res.render("homePage", { layout: "nav" });
-  });
-  router.get("/petfinder", async (req, res) => {
-    res.render("petfinder-search", { dogBreeds });
-  });
+});
 
-  router.get("/searchResults/*", async (req, res) => {
+router.get("/petfinder", async (req, res) => {
+    res.render("petfinder-search", { dogBreeds });
+});
+
+router.get("/searchResults/*", async (req, res) => {
     try {
       const params = req.params[0];
       console.log(params);
@@ -61,8 +63,9 @@ router.get("/", async (req, res) => {
       console.log(error);
       res.status(500).json(error);
     }
-  });
 });
+
+
 
 //tester area
 router.get("/all", async (req, res) => {
@@ -173,6 +176,32 @@ router.get("/breed/:breeds", async (req, res) => {
 //       res.json(error)
 //     }
 // })
+
+
+// get One Dog by its ID
+router.get('/contact/:petfinder_id', async (req, res) => {
+    // find a single Dog by its `id`
+    try {
+        const petData = await Pet.findOne({ 
+            where: {
+                petfinder_id: [req.params.petfinder_id] 
+            }
+        });
+
+        if (!petData){
+            res.status(404).json({message: `Sorry, No dogs in our system with and id of ${req.params.id}.`});
+            // return alertbox on client side?
+            return;
+        } else {
+            const pet = petData.get({plain: true});
+            //const pID = pet.petfinder_id
+            //res.render('dog', dog);
+            res.render('contact', pet );
+        }   
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}) 
 
 router.get("/signup", (req, res) => {
   res.render("signup");
