@@ -15,24 +15,24 @@ const loginFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {
-      return response.json()
+      return response;
     })
-    .then((results) => {
-      console.log(results);
-      return results;
-    })
+    // .then((results) => {
+    //   console.log(results);
+    //   return results;
+    // })
     .catch(err => response.status(500).send(err));
   };
 
   let response = await sendLogin(userNameEl, passwordEl);
-  console.log('data', response)
 
     if (response.ok) {
+      alert("You are now logged in!");
       // sessionStorage.setItem("username", `${username}`)
 
       document.location.replace('/myPage');
     } else {
-      alert("failed to log in");
+      alert("Failed to log in");
     }
   // }
 };
