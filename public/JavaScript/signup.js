@@ -6,11 +6,12 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector("#password-signup");
 
   // if (username && password) {
-  const sendSignup =  async (username, password) => {
+  const sendSignup =  async (username, email, password) => {
     return fetch('/api/User', {
       method: "POST",
       body: JSON.stringify({
         username: username.value,
+        email: email.value,
         password: password.value }),
       headers: { "Content-Type": "application/json" },
     })
@@ -24,7 +25,7 @@ const signupFormHandler = async (event) => {
     .catch(err => response.status(500).send(err));
   };
 
-  let response = await sendSignup(username, password);
+  let response = await sendSignup(username, email, password);
 
     if (response.ok) {
       console.log("success");
