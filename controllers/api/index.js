@@ -6,7 +6,7 @@ const userroutes = require("./userroutes");
 const contactRoutes = require('./contact-api')
 
 
-router.use("/user", userroutes);
+// router.use("/user", userroutes);
 
 router.use("/categories", categoryRoutes);
 //router.use('/dogs', productRoutes);
