@@ -68,17 +68,17 @@
                           </div>
                       </div>
                       <div class="card-content mx-2">
-                          <p class="description">
+                          <p class="description pToggle">
                                   {{pet.description}}
                               </p>
                               <p id="view-details1">
                                   <span class="breed-header"> Breed: <span class="breed-type">{{pet.breeds}}</span></span>
                                   <br>
-                                  <span class="age-header"> Age: <span class="breed-type"> {{pet.Age}} </span></span>
+                                  <span class="age-header"> Age: <span class="age-type"> {{pet.Age}} </span></span>
                                   <br>
-                                  <span class="detailed-desc">Type: <span class="breed-type"> {{pet.type}} </span></span>
+                                  <span class="detailed-desc">Type: <span class="type-type"> {{pet.type}} </span></span>
                                   <br>
-                                  <span class="detailed-desc">ID: <span class="breed-type"> {{pet.petfinder_id}} </span></span>
+                                  <span class="detailed-desc">ID: <span class="id-type"> {{pet.petfinder_id}} </span></span>
                               </p>
                               <!-- <button onclick="showMore()" type="button" class="btn btn-info btn-rounded"> View More...</button> -->
                               {{!-- <a class="toggleBtn" style="color: rgb(0, 85, 255);" onclick= showMore()> View More &raquo;</a> --}}
@@ -96,8 +96,8 @@
               </div>
               {{!-- {{/each}} --}}
               {{!-- Navigation Buttons --}}
-              <div class="swiper-button-next swiper-navBtn"></div>
-              <div class="swiper-button-prev swiper-navBtn"></div>
+              {{!-- <div class="swiper-button-next swiper-navBtn"></div>
+              <div class="swiper-button-prev swiper-navBtn"></div> --}}
               <div class="swiper-pagination"></div>
           </div>
       </div>
