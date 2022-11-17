@@ -4,7 +4,7 @@ document.querySelectorAll('.contact-pet').forEach(btn => {
     // ... add an event listener for `this` button...
     btn.addEventListener('click', async (event) => {
       event.preventDefault(); //event.target  
-  
+
       const Pet_name = btn.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0].innerHTML
       console.log(Pet_name)
       const Age = btn.parentElement.previousElementSibling.children[1].children[2].children[0].innerHTML
@@ -13,7 +13,7 @@ document.querySelectorAll('.contact-pet').forEach(btn => {
       console.log(petfinder_id)
       const breeds = btn.parentElement.previousElementSibling.children[1].children[0].children[0].innerHTML
       console.log(breeds)
-      const description = btn.parentElement.previousElementSibling.children[0].innerHTML
+      const description = btn.parentElement.previousElementSibling.children[0].innerText
       console.log(description)
       const type = btn.parentElement.previousElementSibling.children[1].children[4].children[0].innerHTML
       console.log(type)
